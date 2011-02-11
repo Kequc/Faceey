@@ -32,7 +32,7 @@ module TextHelper
 
   def name_title_and_content(object, content=:content)
     content = object.read_attribute(content)
-    (name_title(object) + h(content)).html_safe
+    (name_title(object) + " " + h(content)).html_safe
   end
   
   def remove_newlines(text)

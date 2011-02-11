@@ -7,7 +7,7 @@ module LinkSubmitted
   end
 
   def link_submitted=(url)
-    url = URI.unescape(url.strip).sub(Regexp.new('(http|https):\/\/(www.)?'+'localhost:3000', true), '')
+    url = URI.unescape(url.strip).sub(Regexp.new('(http|https):\/\/(www.)?'+APP[:site_domain], true), '')
     unless url.blank?
       self.build_link(:url => url)
     end
