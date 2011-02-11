@@ -1,0 +1,11 @@
+- title "Verify email"
+- named_panel("accounts", 'verify')
+
+= form_for(:account, :url => confirm_account_path(@account)) do |form|
+  .form_fields
+    .field.new_row
+      %p= form.label :email_code, "Access code"
+      %p= form.text_field :email_code, :value => nil
+    .wide_field
+      %p.extra You can enter the access code found in your confirmation email here.
+  .submit= form.submit "Submit"

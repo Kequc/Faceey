@@ -1,0 +1,197 @@
+$space_large = 17px
+$space_small = 9px
+
+$primary_color = hsla(104, 30%, 35%, 1)
+$light_border = #f1f1f1
+$light_background = #f1f1f1
+$background_color = #fff
+$font_color = #000
+
+.submit
+  :overflow hidden
+  :margin 0
+    :top -2px
+    :bottom 2em
+  .button
+    :float left
+    :margin 0 2px
+    :cursor pointer
+
+form
+  textarea, input[type=text], input[type=email], input[type=tel], input[type=password], .faux_field
+    :display block
+    :padding 6px 10px
+    :font-size 1em
+    :line-height 1.5em
+    :border 1px solid #ebebeb
+    :margin 2px
+  .faux_field
+    :height 1.5em
+    :border-color ($light_border - 20)
+    select
+      :margin 0 2px
+  textarea
+    :height 10.5em
+    :width 504px
+    :resize none
+  .page_split
+    :overflow hidden
+    .split
+      :float left
+      :width 260px
+      :margin-left 10px
+    .new_row
+      :clear left
+      :margin-left 0
+  .form_fields
+    :overflow hidden
+    :padding $space_large 0
+    :border-top 1px solid $light_border
+    :width 530px
+    p.check_box label
+      :color #bbb
+      span
+        :text-decoration underline
+      &:hover
+        :color (#bbb - 20)
+    p.extra
+      :font-size 0.9em
+      :color #666
+    .field, .wide_field
+      :overflow hidden
+      :float left
+      input[type=text], input[type=email], input[type=tel], input[type=password]
+        :width 234px
+      label input
+        :margin-right 7px
+    .field
+      :width 260px
+      :margin-left 10px
+      .textarea_autosize textarea
+        :min-height 4.5em
+        :width 210px
+    .new_row
+      :clear left
+      :margin-left 0
+    .wide_field
+      :clear left
+      :width 530px
+    .privacy
+      :margin-bottom 0
+    .textarea_autosize
+      :margin-bottom 1em
+    #terms_of_service
+      :border 1px solid $light_border
+      :margin-bottom 1em
+      :padding 6px 10px
+      :overflow auto
+      :height 27em
+      :color #666
+      :font-size 0.9em
+    .field_with_errors
+      label
+        :font-weight bold
+        :color #cc3333
+      input, textarea
+        :background-color #ffecce
+    .check_box .field_with_errors
+      label
+        :font-weight normal
+        :color #cc3333
+      input
+        :background-color transparent
+
+.centered_form
+  :position relative
+  :background-color $light_background
+  :margin-bottom $space_large
+  :text-align center
+  :padding $space_small
+  .fire_1
+    :background url('/images/extras/01447.gif') left center no-repeat
+  .fire_2
+    :background url('/images/extras/01447.gif') right center no-repeat
+  .form_fields
+    :width 350px
+    :position relative
+    :left 50%
+    :padding-top 0
+    :margin-left -175px
+    :overflow hidden
+    .label
+      :float right
+      :line-height 37px
+    .field
+      :float right
+  .submit
+    :margin-bottom 0
+
+.attachable
+  :overflow hidden
+  ul.type_select
+    :float right
+    li
+      :float left
+      :padding 4px
+      :margin 0 3px
+      &:hover, &.current
+        :background-color #bbb
+  .attached
+    :height 30px
+    :overflow hidden
+    input
+      :float right
+      :background-color $light_background
+      :font-size 0.9em
+      :color #666
+    input[type=text]
+      :padding 3px 5px
+      :width 490px
+
+.textarea_autosize
+  :background-color $light_background
+  :border-top 1px solid #bbb
+  :padding $space_small 12px
+  :margin-bottom $space_large
+  :clear left
+  textarea
+    :height 1.5em
+    :width 480px
+    :margin $space_small 2px
+    :overflow hidden
+  input[type=submit]
+    :margin $space_small 2px
+      :top 0
+  input.text
+    :margin $space_small 2px
+    :width 300px
+  .submit
+    :margin-bottom 0
+  &.textarea_tall textarea
+    :min-height 15em
+  &.textarea_midsize textarea
+    :min-height 9em
+  &.add_comment
+    :margin-top $space_large
+    :margin-left 38px
+    :margin-right 38px
+    textarea
+      :width 404px
+    .attached input
+      :width 414px
+
+.form_errors
+  :margin-bottom $space_large
+  .header
+    :padding $space_small 10px
+      :left 50px
+    :background url('/images/error.gif') left center no-repeat
+    :font-weight bold
+    :color $background_color
+    :margin-bottom $space_small
+  ul
+    :margin-bottom 1em
+    li
+      :margin 0 10px
+      :padding 0 10px 0 30px
+      :background url('/images/x.png') left center no-repeat

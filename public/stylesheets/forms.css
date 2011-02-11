@@ -1,0 +1,185 @@
+.submit {
+  overflow: hidden;
+  margin: 0;
+    margin-top: -2px;
+    margin-bottom: 2em; }
+  .submit .button {
+    float: left;
+    margin: 0 2px;
+    cursor: pointer; }
+
+form textarea, form input[type=text], form input[type=email], form input[type=tel], form input[type=password], form .faux_field {
+  display: block;
+  padding: 6px 10px;
+  font-size: 1em;
+  line-height: 1.5em;
+  border: 1px solid #ebebeb;
+  margin: 2px; }
+form .faux_field {
+  height: 1.5em;
+  border-color: #dddddd; }
+  form .faux_field select {
+    margin: 0 2px; }
+form textarea {
+  height: 10.5em;
+  width: 504px;
+  resize: none; }
+form .page_split {
+  overflow: hidden; }
+  form .page_split .split {
+    float: left;
+    width: 260px;
+    margin-left: 10px; }
+  form .page_split .new_row {
+    clear: left;
+    margin-left: 0; }
+form .form_fields {
+  overflow: hidden;
+  padding: 17px 0;
+  border-top: 1px solid #f1f1f1;
+  width: 530px; }
+  form .form_fields p.check_box label {
+    color: #bbbbbb; }
+    form .form_fields p.check_box label span {
+      text-decoration: underline; }
+    form .form_fields p.check_box label:hover {
+      color: #a7a7a7; }
+  form .form_fields p.extra {
+    font-size: 0.9em;
+    color: #666666; }
+  form .form_fields .field, form .form_fields .wide_field {
+    overflow: hidden;
+    float: left; }
+    form .form_fields .field input[type=text], form .form_fields .field input[type=email], form .form_fields .field input[type=tel], form .form_fields .field input[type=password], form .form_fields .wide_field input[type=text], form .form_fields .wide_field input[type=email], form .form_fields .wide_field input[type=tel], form .form_fields .wide_field input[type=password] {
+      width: 234px; }
+    form .form_fields .field label input, form .form_fields .wide_field label input {
+      margin-right: 7px; }
+  form .form_fields .field {
+    width: 260px;
+    margin-left: 10px; }
+    form .form_fields .field .textarea_autosize textarea {
+      min-height: 4.5em;
+      width: 210px; }
+  form .form_fields .new_row {
+    clear: left;
+    margin-left: 0; }
+  form .form_fields .wide_field {
+    clear: left;
+    width: 530px; }
+  form .form_fields .privacy {
+    margin-bottom: 0; }
+  form .form_fields .textarea_autosize {
+    margin-bottom: 1em; }
+  form .form_fields #terms_of_service {
+    border: 1px solid #f1f1f1;
+    margin-bottom: 1em;
+    padding: 6px 10px;
+    overflow: auto;
+    height: 27em;
+    color: #666666;
+    font-size: 0.9em; }
+  form .form_fields .field_with_errors label {
+    font-weight: bold;
+    color: #cc3333; }
+  form .form_fields .field_with_errors input, form .form_fields .field_with_errors textarea {
+    background-color: #ffecce; }
+  form .form_fields .check_box .field_with_errors label {
+    font-weight: normal;
+    color: #cc3333; }
+  form .form_fields .check_box .field_with_errors input {
+    background-color: transparent; }
+
+.centered_form {
+  position: relative;
+  background-color: #f1f1f1;
+  margin-bottom: 17px;
+  text-align: center;
+  padding: 9px; }
+  .centered_form .fire_1 {
+    background: url("/images/extras/01447.gif") left center no-repeat; }
+  .centered_form .fire_2 {
+    background: url("/images/extras/01447.gif") right center no-repeat; }
+  .centered_form .form_fields {
+    width: 350px;
+    position: relative;
+    left: 50%;
+    padding-top: 0;
+    margin-left: -175px;
+    overflow: hidden; }
+    .centered_form .form_fields .label {
+      float: right;
+      line-height: 37px; }
+    .centered_form .form_fields .field {
+      float: right; }
+  .centered_form .submit {
+    margin-bottom: 0; }
+
+.attachable {
+  overflow: hidden; }
+  .attachable ul.type_select {
+    float: right; }
+    .attachable ul.type_select li {
+      float: left;
+      padding: 4px;
+      margin: 0 3px; }
+      .attachable ul.type_select li:hover, .attachable ul.type_select li.current {
+        background-color: #bbbbbb; }
+  .attachable .attached {
+    height: 30px;
+    overflow: hidden; }
+    .attachable .attached input {
+      float: right;
+      background-color: #f1f1f1;
+      font-size: 0.9em;
+      color: #666666; }
+    .attachable .attached input[type=text] {
+      padding: 3px 5px;
+      width: 490px; }
+
+.textarea_autosize {
+  background-color: #f1f1f1;
+  border-top: 1px solid #bbbbbb;
+  padding: 9px 12px;
+  margin-bottom: 17px;
+  clear: left; }
+  .textarea_autosize textarea {
+    height: 1.5em;
+    width: 480px;
+    margin: 9px 2px;
+    overflow: hidden; }
+  .textarea_autosize input[type=submit] {
+    margin: 9px 2px;
+      margin-top: 0; }
+  .textarea_autosize input.text {
+    margin: 9px 2px;
+    width: 300px; }
+  .textarea_autosize .submit {
+    margin-bottom: 0; }
+  .textarea_autosize.textarea_tall textarea {
+    min-height: 15em; }
+  .textarea_autosize.textarea_midsize textarea {
+    min-height: 9em; }
+  .textarea_autosize.add_comment {
+    margin-top: 17px;
+    margin-left: 38px;
+    margin-right: 38px; }
+    .textarea_autosize.add_comment textarea {
+      width: 404px; }
+    .textarea_autosize.add_comment .attached input {
+      width: 414px; }
+
+.form_errors {
+  margin-bottom: 17px; }
+  .form_errors .header {
+    padding: 9px 10px;
+      padding-left: 50px;
+    background: url("/images/error.gif") left center no-repeat;
+    font-weight: bold;
+    color: white;
+    margin-bottom: 9px; }
+  .form_errors ul {
+    margin-bottom: 1em; }
+    .form_errors ul li {
+      margin: 0 10px;
+      padding: 0 10px 0 30px;
+      background: url("/images/x.png") left center no-repeat; }

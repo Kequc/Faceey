@@ -1,0 +1,62 @@
+!!!
+%html
+  %head
+    %meta{"http-equiv" => "Content-Type", :content => "text/html; charset=utf-8"}
+    %title= [@page_title, APP[:site_name]].compact.join(" - ")
+    = stylesheet_link_tag 'layout', 'forms', 'goodbox'
+    -#
+      = stylesheet_link_tag 'http://fonts.googleapis.com/css?family=Cantarell'
+      = stylesheet_link_tag 'http://fonts.googleapis.com/css?family=Lekton'
+    - bgh = rand(360)
+    %style{:type => "text/css", :media => "screen"}
+      :sass
+        body
+          .primary_bg
+            :background-color hsla(#{bgh}, 60%, 30%, 1) !important
+          a, span.link, span.faux_link
+            :color hsla(#{bgh}, 60%, 30%, 1)
+          #top #menu .adjuncts.updated:hover a span
+            :color hsla(#{bgh}, 60%, 30%, 1) !important
+          ul.controls li
+            a:hover
+              :background-color hsla(#{bgh}, 60%, 30%, 0.5) !important
+    = javascript_include_tag :defaults, 'goodbox'
+    = csrf_meta_tag
+    = yield :head
+  %body
+    #viewport
+      #top.primary_bg
+        .hor_container
+          .container
+            = link_to image_tag('logo.png', :alt => APP[:site_name]), root_path, :id => "logo"
+            - if signed_in?
+              #menu
+                = render :partial => "adjuncts/menu_dropdown"
+            #navigation
+              - if signed_in?
+                = link_to current_profile, current_profile
+                .text= "not you? Then"
+                = link_to "sign out", logout_path
+              - else
+                = link_to "Join now", new_account_path
+                .text= "or"
+                = link_to "sign in", login_path
+      #middle
+        .hor_container
+          .container
+            - unless notice.blank?
+              #notice.primary_bg= notice
+            #title= @page_title
+            - if !@right_panel
+              = yield
+            - else
+              #right_panel
+                = yield :right_panel
+              #left
+                = yield
+          #ad_bar
+          #propaganda
+            %p Please disable adblock in your browser for this site.
+            %p It's how I make money.
+        / #bottom
+        /   .sec_container

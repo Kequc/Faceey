@@ -1,0 +1,11 @@
+.adjuncts{:class => (current_profile.has_adjuncts? ? "updated" : nil)}
+  = link_to strong_text_with_count("Updates", current_profile.adjuncts_count, nil), adjuncts_path
+  - if current_profile.has_adjuncts?
+    %ul.drop
+      - current_profile.adjuncts.not_blocked.each do |adjunct|
+        - if adjunct.unread_count > 0
+          %li
+            %a{:href => polymorphic_path(adjunct.cached_type.downcase.to_sym, :id => adjunct._id, :comment_id => adjunct.first_unread._id)}
+              - if adjunct.unread_count > 1
+                .count= "#{adjunct.unread_count} new"
+              = content_tag(:span, adjunct.first_unread.cached_full_name, :class => "link") + adjunct.first_unread.content

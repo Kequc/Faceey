@@ -1,0 +1,7 @@
+.content
+  = faceey_name_title_and_content(object)
+  - arr = []
+  - if can_modify?(object)
+    - arr << link_to("Delete", object, :method => :delete, :confirm => "Are you sure?")
+  = stub(object.created_at, arr)
+= attached_link(object)

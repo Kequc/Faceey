@@ -1,0 +1,14 @@
+Hello,
+
+Thanks for requesting a <%= APP[:site_name] %> account. Please click the link below to verify this email address is valid or copy and paste the enclosed access code onto the verification page.
+
+<%= confirm_account_url(@account, :email_code => @account.email_code) %>
+
+Access code: <%= @account.email_code %>
+Verification page: <%= confirm_account_url(@account) %>
+
+
+Sent from
+
+<%= APP[:site_name] %>
+<%= link_to root_url, root_url %>

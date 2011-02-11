@@ -1,0 +1,12 @@
+- title "Blocked"
+- panel @profile
+
+- if @relationships.length > 0
+  #profiles.page_split
+    - @relationships.each do |relationship|
+      .split.shared{:id => "relationship_#{relationship._id}", :class => cycle("new_row", nil)}
+        = stream_picture(relationship, :thumb, false)
+        %a.relationship.content{:href => relationship_path(relationship)}
+          %p= name_title(relationship)
+- else
+  = display_empty

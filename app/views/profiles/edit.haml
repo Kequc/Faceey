@@ -1,0 +1,22 @@
+- title @profile
+- panel @profile, 'edit'
+
+= form_for(@profile) do |form|
+  = errors_for @profile
+  .form_fields
+    = render :partial => "form", :object => form
+    .field.new_row
+      %p= form.label :birthday
+      %p= content_tag(:span, form.date_select(:birthday, :include_blank => true, :start_year => Time.now.year-105, :end_year => Time.now.year, :order => [:month, :day, :year]), :class => "faux_field")
+    .field
+      %p= form.label :gender
+      %p= content_tag(:span, form.select(:gender, ["", "Male", "Female"]), :class => "faux_field")
+    .wide_field
+      %p= form.label :description
+      .textarea_autosize
+        = form.text_area :description
+    .wide_field
+      %p= form.label :blurb
+      .textarea_autosize
+        = form.text_area :blurb
+  .submit= form.submit "Save changes"

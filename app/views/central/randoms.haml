@@ -1,0 +1,7 @@
+- title "Random"
+- named_panel("central", 'randoms')
+
+= add_item(current_profile)
+#stream
+  = paginate(@splashes, :desc => true, :empty => display_empty) do |splash|
+    = render_item(splash)

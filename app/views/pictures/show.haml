@@ -1,0 +1,17 @@
+- title @stream
+- panel @stream
+/ = stop_following_conversation_link(@item, watch_picture_path(@item))
+
+#picture.shared
+  = image_stream_link(@item)
+  .content
+    = faceey_name_title_and_content(@item)
+    - if can_modify?(@item)
+      - arr = []
+      - arr << link_to("Delete", @item, :method => :delete, :confirm => "Are you sure?")
+    = stub(@item.created_at, arr)
+  = uploaded_picture(@item)
+#comments
+  = paginate(@item.comments, :text => "comments") do |comment|
+    = render_comment(comment, comment.shared_by_id == @item.shared_by_id)
+= add_comment(@item)

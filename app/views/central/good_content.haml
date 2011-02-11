@@ -1,0 +1,7 @@
+- title "Good content"
+- named_panel("central", 'good_content')
+
+= add_item(current_profile)
+#stream
+  = paginate(@splashes, :desc => true, :empty => render(:partial => "empty_good_content")) do |splash|
+    = render_item(splash, true)

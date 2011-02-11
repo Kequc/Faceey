@@ -1,0 +1,12 @@
+= legend("Home page")
+%ul.controls
+  = controls_link("Good content", good_content_path, 'good_content')
+  = controls_link("Hidden", hidden_path, 'hidden')
+  = controls_link("Recent", recent_path, 'recent')
+  / = controls_link("Non-friendly", non_friendly_path, 'non_friendly')
+  / = controls_link("Randoms", randoms_path, 'randoms')
+  / %li.spacer
+  / = controls_link("Followed topics", followed_topics_path, 'followed_topics')
+  / = controls_link("Popular", popular_topics_path, 'popular_topics')
+  / = controls_link("Followed blogs", followed_blogs_path, 'followed_blogs')
+  / = controls_link("Popular", popular_blogs_path, 'popular_blogs')

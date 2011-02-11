@@ -1,0 +1,11 @@
+- title "Join now"
+- named_panel("sessions", 'join')
+
+= form_for(@account) do |form|
+  .form_fields
+    .field.new_row
+      %p= label_tag :email
+      %p= email_field_tag :email
+    .wide_field
+      %p.extra Use this form to request an invitation be sent to your inbox.
+  .submit= form.submit "Send"

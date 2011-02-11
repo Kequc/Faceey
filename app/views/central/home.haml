@@ -1,0 +1,47 @@
+- title "Welcome to #{APP[:site_name]}"
+- panel nil
+- content_for :head do
+  :javascript
+    window.addEvent("domready", function() {
+      var toggles = $('pause_animation').getElements(".pause_animation_div");
+      var replaceAnimationDivBg = function(image) {
+        toggles.each(function(div) { div.setStyle('background-image', "url("+image+")"); });
+      }
+      $('pause_animation').getElement("span.tiny.faux_link").toggle('click',
+        function() { replaceAnimationDivBg('/images/extras/01447_paused.gif'); },
+        function() { replaceAnimationDivBg('/images/extras/01447.gif'); }
+      );
+    });
+
+.block
+  .title= "Very little investor interest"
+  %p= "#{APP[:site_name]} is a Alpha application and social networking tool. It is meant as a hobby, it is built to demonstrate my skill for the benefit of future employment."
+#pause_animation
+  %span.tiny.faux_link Pause animation
+  .centered_form
+    .pause_animation_div{:style => "background: url('/images/extras/01447.gif') left center no-repeat"}
+      .pause_animation_div{:style => "background: url('/images/extras/01447.gif') right center no-repeat"}
+        %p.title Check it, join now
+        = form_for(Account.new, :html => { :id => "pause_animation" }) do |form|
+          .form_fields
+            .field= email_field_tag :email
+            .label= label_tag :email
+          .submit= form.submit "Send"
+.block
+  .title= "Absolutely no privacy"
+  %p= "We organize your contacts, and enable a new way to share and interact with the world. However, besides keeping your address book safe and your password encrypted. Everything that you post on #{APP[:site_name]} is going to be read and seen by as many different people as possible."
+  .title= "Why?"
+  %p= "We believe that your thoughts and expression should be shared with a very wide audience in case you've said something that is valuable. Other people with new perspectives are more likely to share input with you about what you want to discuss, even potentially change your mind on important issues if you are wrong."
+  %p= "Share whatever you want with whomever, they in turn can share what's on their mind with you or anyone else. Or they might hide you or block you."
+  %p= "Nobody is restricted from sharing what they feel like and nobody is forced to read it. That is the core guiding principle which steers development of #{APP[:site_name]}."
+.block
+  .title= "No way to accept friend requests"
+  %p= "On #{APP[:site_name]} anyone can state that they are your friends and you will immediately begin receiving updates from them. If you like you can reciprocate their friendship but it's never brought up."
+  .title= "Why?"
+  %p= "It doesn't fit with the spirit of #{APP[:site_name]} to limit any profile's ability to participate in any way. If you don't wish your updates to be aggregated to them, simply don't. If you don't want their updates aggregated to you, simply hide them or block them. There is no profile with whom you are forced into prolonged discourse."
+  %p= "At least in my brain and on paper this works, trust us for now. Celebrities might have a hard time with this."
+.block
+  .title= "Unmitigated encouragement"
+  %p= "Some people may have come expecting their lives to change for the better."
+  %p= "#{APP[:site_name]} is an unfinished application coded by hand at the breadth of one guy, written on a state of the art bleeding edge application framework. The application is in no way optimized for speed or reliability and likely key functions will cease to (function); without warning."
+  %p= "Information will be lost or thrown away while we figure out what we want this application to do and probably won't stop screwing with it."

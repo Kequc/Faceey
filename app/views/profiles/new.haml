@@ -1,0 +1,15 @@
+- title "Profile"
+- named_panel("accounts", 'profile')
+
+= form_for(@profile, :url => account_profiles_path(@account), :html => {:method => :post}) do |form|
+  = errors_for @profile
+  .form_fields
+    = render :partial => "form", :object => form
+    .wide_field
+      %p.extra Real name not required.
+  .form_fields
+    .wide_field
+      %p= link_to "Terms of service", terms_of_service_path, :target => "_blank"
+    .wide_field
+      = render_check_box(form, :terms_of_service, "Accept terms of service")
+  .submit= form.submit "Finish"

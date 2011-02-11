@@ -1,0 +1,13 @@
+= stream_picture(account_panel)
+= legend("Settings")
+%ul.controls
+  = view_stream_controls_link(account_panel, 'stream')
+  - if account_panel.has_blog?
+    = controls_link(text_with_count("View blog", account_panel.blog.blog_posts_count), blog_path(account_panel.blog))
+  - if can_modify?(account_panel)
+    = controls_link("View settings", edit_profile_path, 'profile_info')
+  %li.spacer
+  = controls_link("Privacy", privacy_path, 'privacy')
+  = controls_link("Registration details", edit_profile_registration_path, 'account_details')
+  %li.spacer
+  = controls_link("Close account", close_account_path, 'close_account')

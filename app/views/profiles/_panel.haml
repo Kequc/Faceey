@@ -1,0 +1,21 @@
+= stream_picture(panel)
+= legend(panel.full_name)
+- if blocked_id?(panel._id)
+  %ul.controls
+    = controls_link("Un-block", toggle_block_relationship_path(panel))
+- else
+  %ul.controls
+    = controls_link("View profile", profile_path(panel), 'stream')
+    = controls_link("About", about_profile_path(panel), 'about')
+    - if can_modify?(panel)
+      = controls_link("Edit profile", edit_profile_path(panel), 'edit')
+    - if signed_in? and !current_profile_id?(panel._id)
+      / = controls_link("Private message", new_profile_message_path(panel), 'message')
+      %li.spacer
+      - unless friended_id?(panel._id) or blocked_id?(panel._id)
+        = controls_link("Start sharing", toggle_friend_relationship_path(panel))
+      - if friended_id?(panel._id)
+        = controls_link("Relationship", relationship_path(panel), 'relationship')
+      - else
+        = controls_link("Block", toggle_block_relationship_path(panel))
+  = stream_blurb(panel)

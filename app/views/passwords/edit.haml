@@ -1,0 +1,14 @@
+- title "Set password"
+- named_panel("accounts", 'password')
+
+= form_for @account, :url => password_path(@account, :password_code => params[:password_code]) do |form|
+  = errors_for @account
+  .form_fields
+    .field.new_row
+      %p= form.label :password
+      %p= form.password_field :password
+      %p.extra Choose a new password.
+    .field
+      %p= form.label :password_confirmation
+      %p= form.password_field :password_confirmation
+  .submit= form.submit "Submit"

@@ -1,0 +1,14 @@
+- title "Sign in"
+- named_panel("sessions", 'login')
+
+= form_for(:session, :url => login_path) do |form|
+  .form_fields
+    .field.new_row
+      %p= form.label :email
+      %p= form.email_field :email
+    .field
+      %p= form.label :password
+      %p= form.password_field :password
+    .wide_field
+      = render_check_box(form, :remember_me, "Remember me", true)
+  .submit= form.submit "Login"

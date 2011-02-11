@@ -1,0 +1,7 @@
+- title "Not friendly back"
+- named_panel("central", 'non_friendly')
+
+= add_item(current_profile)
+#stream
+  = paginate(@splashes, :desc => true, :empty => display_empty) do |splash|
+    = render_item(splash)

@@ -1,0 +1,22 @@
+!!!
+%html
+  %head
+    %meta{"http-equiv" => "Content-Type", :content => "text/html; charset=utf-8"}
+  %body{:style => "font-family:sans-serif;line-height:1.5em;"}
+    %p
+      Thanks for requesting a
+      = APP[:site_name]
+      account. Please click the link below to verify this email address is valid or copy and paste the enclosed access code onto the verification page.
+    %p= link_to confirm_account_url(@account, :email_code => @account.email_code), confirm_account_url(@account, :email_code => @account.email_code)
+    %p
+      Access code:
+      = @account.email_code
+      %br
+      Verification page:
+      = link_to confirm_account_url(@account), confirm_account_url(@account)
+    %br
+    %p Sent from
+    %p
+      = APP[:site_name]
+      %br
+      = link_to root_url, root_url

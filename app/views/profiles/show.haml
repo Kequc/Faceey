@@ -1,0 +1,7 @@
+- title @profile
+- panel @profile, 'stream'
+
+= add_item(@profile)
+#stream
+  = paginate(@splashes, :desc => true, :empty => (current_profile_id?(@profile._id) ? render(:partial => "empty_profile") : display_empty)) do |splash|
+    = render_item(splash)

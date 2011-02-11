@@ -1,0 +1,4 @@
+%a.picture.content{:href => picture_path(object)}
+  = truncate_text(name_title_and_content(object))
+  = stub(object.created_at, [strong_text_with_count("Comments", object.comments_count)])
+= uploaded_picture(object)

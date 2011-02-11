@@ -1,0 +1,25 @@
+FACEEY
+
+
+UHHH
+AGHHHHHHHHHHAGHAGHHHAHHHHAGIGHLEAGHAIGLHAGKAJ:FJAIWHF:AJV:ANVALBVA:V..........
+
+Fix find_or_create_relationship in profile.rb model.
+
+Double check BLOCKED functionality to make sure it isn't broke.
+
+Maybe cache logged in profile's blocked and friended profiles list.
+
+What the hell did you do to blogs?
+
+Fix image uploading unspecified error.
+
+Make emails pretty.
+
+Double check about and contact pages.
+
+Contacts to new registrations.
+
+Add search.
+
+Make pictures post-able on any stream.

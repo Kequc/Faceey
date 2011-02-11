@@ -1,0 +1,12 @@
+- title "Updates"
+- panel @profile
+
+- if @adjuncts.length > 0
+  - @adjuncts.each do |adjunct|
+    - if adjunct.unread_count > 0
+      .shared
+        %a.adjunct.content{:href => polymorphic_path(adjunct.cached_type.downcase.to_sym, :id => adjunct._id, :comment_id => adjunct.first_unread._id)}
+          = truncate_text(name_title_and_content(adjunct.first_unread))
+          = stub(adjunct.first_unread.created_at.to_time, [strong_text_with_count("Unread", (adjunct.unread_count < 2 ? 0 : adjunct.unread_count))])
+- else
+  = display_empty

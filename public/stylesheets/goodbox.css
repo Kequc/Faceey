@@ -1,0 +1,55 @@
+.goodbox {
+  position: absolute;
+  z-index: 99;
+  left: 50%;
+  background-color: #bbbbbb; }
+  .goodbox .box_content {
+    position: absolute;
+    top: 43px;
+    left: 15px;
+    z-index: 2;
+    overflow: hidden; }
+  .goodbox .container {
+    position: relative;
+    top: -6px;
+    left: -6px;
+    padding: 10px;
+    background-color: white;
+    overflow: hidden;
+    border: 1px solid #bbbbbb;
+    z-index: 1; }
+    .goodbox .container .box_title, .goodbox .container .box_bottom {
+      display: block;
+      height: 34px;
+      line-height: 34px;
+      white-space: nowrap;
+      overflow: hidden; }
+    .goodbox .container .box_title {
+      margin-right: 44px; }
+      .goodbox .container .box_title a {
+        float: left;
+        padding: 0 10px;
+        color: black;
+        font-weight: bold; }
+    .goodbox .container .box_bottom .item_link {
+      float: left;
+      padding: 0 10px; }
+      .goodbox .container .box_bottom .item_link:hover {
+        text-decoration: none; }
+        .goodbox .container .box_bottom .item_link:hover strong {
+          text-decoration: underline; }
+    .goodbox .container .close, .goodbox .container .close img {
+      display: block;
+      height: 14px;
+      width: 14px; }
+    .goodbox .container .close {
+      position: absolute;
+      top: 0;
+      right: 0;
+      padding: 20px 20px 10px 10px;
+      opacity: 0.4;
+      cursor: pointer; }
+      .goodbox .container .close:hover {
+        opacity: 1; }
+    .goodbox .container .box {
+      padding: 5px 10px; }

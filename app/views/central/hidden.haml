@@ -1,0 +1,7 @@
+- title "Hidden"
+- named_panel("central", 'hidden')
+
+= add_item(current_profile)
+#stream
+  = paginate(@splashes, :desc => true, :empty => display_empty) do |splash|
+    = render_item(splash, true)
