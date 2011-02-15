@@ -33,25 +33,28 @@ class Profile < Stream
   
   scope :order_by_name, desc(:first_name).desc(:last_name)
   
-  def propagate_picture_and_name
-    attributes = { "cached_full_name" => self.full_name }
-    if self.picture
-      attributes.merge!({ "cached_picture_id" => self.picture._id, "cached_picture_filename" => self.picture.attach_filename })
-    end
+  before_save :check_name_changed
+  
+  def propagate_picture
+    attributes = { "cached_picture_id" => self.picture._id, "cached_picture_filename" => self.picture.attach_filename }
     Item.collection.update({ "shared_by_id" => self._id }, { "$set" => attributes }, :multi => true)
     Comment.collection.update({ "shared_by_id" => self._id }, { "$set" => attributes }, :multi => true)
   end
-  handle_asynchronously :propagate_picture_and_name
+  handle_asynchronously :propagate_picture
+  
+  def propagate_name
+    attributes = { "cached_full_name" => self.full_name }
+    Item.collection.update({ "shared_by_id" => self._id }, { "$set" => attributes }, :multi => true)
+    Item.collection.update({ "shared_by_id" => { "$ne" => self._id}, "stream_id" => self._id }, { "$set" => { "cached_shared_to" => self.full_name } }, :multi => true)
+    Comment.collection.update({ "shared_by_id" => self._id }, { "$set" => attributes }, :multi => true)
+  end
+  handle_asynchronously :propagate_name
   
   def full_name
     "#{first_name} #{last_name}".strip
   end
   alias_method :to_s, :full_name
   alias_method :cached_full_name, :full_name
-  
-  # def self.current_id
-  #   current ? current.id : nil
-  # end
   
   def shared_by
     self
@@ -62,12 +65,11 @@ class Profile < Stream
   end
   
   def can_modify?(object)
-    # object was created by signed in user and they are therefore allowed to change it
+    # Object was created by signed in user
     Profile.current and object.shared_by_id == Profile.current._id
   end
   
   def blocked_relationship_ids
-    # (relationships.where(:blocked => true).collect(&:_id)+relationships.where(:block => true).collect(&:_id)).uniq
     relationships.any_of({ :blocked => true }, { :block => true }).collect(&:_id)
   end
   
@@ -106,5 +108,13 @@ class Profile < Stream
       return u.id == id
     end
     false
+  end
+  
+  protected
+  
+  def check_name_changed
+    if persisted? and (first_name_changed? or last_name_changed?)
+      propagate_name
+    end
   end
 end

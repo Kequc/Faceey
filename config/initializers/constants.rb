@@ -7,5 +7,5 @@ APP = {
   :max_uploadable_pictures => 40,
   :per_page => 20,
   :link_regex => '(http|https):\/\/[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}(([0-9]{1,5})?\/.*)?',
-  :image_regex => '\.(jpg|jpeg|png|gif)$'
+  :image_regex => '\.(jpg|jpeg|png|gif|tiff)$'
 }

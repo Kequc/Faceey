@@ -18,10 +18,7 @@
     %p This profile is currently blocked. This limits the amount of activity you are capable of sharing with the owner of this profile, in fact this should be pretty much the only place the profile will be visible to you anywhere.
     %p Likewise the owner of this profile will not be capable of sharing with you.
     - if blocked_id?(@profile._id)
-      %p
-        This will be available from your
-        = link_to "blocked profiles page", blocked_relationships_path
-        as a convenience to you should you ever change your mind.
+      %p This will be available from your blocked profiles page as a convenience to you should you ever change your mind.
       -#
         %p
           If it is a serious problem you may wish to

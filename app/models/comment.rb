@@ -10,11 +10,13 @@ class Comment
 
   referenced_in :item, :inverse_of => :comments
   
-  validates :content, :presence => true, :length => {:maximum => APP[:max_default_content_length]}
+  validates :content, :presence => true, :length => { :maximum => APP[:max_default_content_length] }
   
   after_create :increase_comments_count
   after_destroy :decrease_comments_count
   after_create :update_participants
+  
+  attr_accessor :link_submitted
   
   protected
 

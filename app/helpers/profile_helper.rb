@@ -20,7 +20,7 @@ module ProfileHelper
         dropdown << content_tag(:li, link_to((hidden_id?(object.shared_by_id) ? "Un-hide" : "Hide"), toggle_hide_relationship_path(object.shared_by_id)))
       end
       if friended_id?(object.shared_by_id)
-        dropdown << content_tag(:li, link_to("Relation", relationship_path(object.shared_by_id)))
+        dropdown << content_tag(:li, link_to("Sharing", relationship_path(object.shared_by_id)))
       else
         dropdown << content_tag(:li, link_to("Block", toggle_block_relationship_path(object.shared_by_id)))
       end
@@ -44,7 +44,7 @@ module ProfileHelper
   end
 
   def describe_relationship(relationship, profile)
-    link = (blocked_id?(profile._id) ? profile.full_name : link_to(profile.full_name, toggle_friend_relationship_path(profile)))
+    link = (blocked_id?(profile._id) ? profile.full_name : link_to(profile.full_name, profile_path(profile)))
     if relationship.blocked
       output = "You have <strong>BLOCKED</strong> #{link}"
     elsif relationship.friended

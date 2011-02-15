@@ -259,12 +259,6 @@ var GoodBox = new Class({
       this.view.set('url', 'http://www.dailymotion.com/swf/video/' + this.uri.get('file'));
       this.output = new Swiff(this.getViewUrl(), this.swiffOptions({
         }));
-    } else if (host.test(/facebook\.com/i) && this.getUrlDir(1) == "video") {
-      // Facebook
-      this.setContentDimensions(400, 300);
-      this.view.set('url', 'http://www.facebook.com/v/' + this.getViewData('v'));
-      this.output = new Swiff(this.getViewUrl(), this.swiffOptions({
-        }));
     } else if (host.test(/metacafe\.com/i) && this.getUrlDir(1) == "watch") {
       // Metacafe
       this.setContentDimensions(600, 370);
@@ -309,7 +303,7 @@ var GoodBox = new Class({
     return this.uri.getData(param);
   },
   getUrlDir: function(index) {
-    return this.uri.directory.split('/')[index];
+    return this.uri.get('directory').split('/')[index];
   },
   getViewUrl: function() {
     output = new URI(this.view.get('url'));

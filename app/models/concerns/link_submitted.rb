@@ -24,11 +24,7 @@ module LinkSubmitted
   def attach_link
     l = ExistingLink.find_and_decorate_url(link.url)
     self.existing_link = l
-    self.link.variety = l.link.variety
-    self.link.provider_name = l.link.provider_name
-    self.link.title = l.link.title
-    self.link.description = l.link.description
-    self.link.attach_url = l.attach.url
+    self.link.attributes = l.build_link_attributes
     self.save
     self.propagate_link_submitted if self.respond_to?('propagate_link_submitted')
   end

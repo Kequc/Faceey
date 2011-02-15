@@ -14,6 +14,7 @@ class Item < Splash
   before_create :cache_shared_to
   before_create :include_shared_by_in_participant_ids
 
+  # This goes here since the form can be submitted with these values on any item create attempt
   attr_accessor :link_submitted, :remote_attach_url
   
   def show_shared_to?

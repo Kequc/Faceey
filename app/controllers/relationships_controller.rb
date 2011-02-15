@@ -13,7 +13,7 @@ class RelationshipsController < ApplicationController
   
   def blocked
     @profile = current_profile
-    @relationships = Profile.any_in(:_id => @profile.blocked_relationship_ids).order_by_name
+    @relationships = Profile.any_in(:_id => @profile.relationships.where({ :blocked => true }).collect(&:_id)).order_by_name
     respond_with(@relationships)
   end
   

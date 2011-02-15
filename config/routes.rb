@@ -16,7 +16,8 @@ Faceey::Application.routes.draw do
     match "recent", :as => "recent", :to => 'central#recent'
   end
 
-  resources :relationships, :only => :show do
+  resources :relationships, :only => :show
+  resources :relationships, :only => [], :path => "sharing" do
     get :blocked, :on => :collection
     get :toggle_block, :on => :member
     get :toggle_friend, :on => :member
@@ -27,7 +28,7 @@ Faceey::Application.routes.draw do
     resources :items, :only => [:new, :create]
   end
   resources :items, :only => :destroy do
-    resources :comments, :only => :create
+    resources :comments, :only => [:new, :create]
   end
   resources :comments, :only => :destroy
   resources :thoughts, :only => :show, :controller => "items"

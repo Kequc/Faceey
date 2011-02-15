@@ -1,25 +1,16 @@
 FACEEY
 
 
-UHHH
-AGHHHHHHHHHHAGHAGHHHAHHHHAGIGHLEAGHAIGLHAGKAJ:FJAIWHF:AJV:ANVALBVA:V..........
+Allow editing email address.
 
-Fix find_or_create_relationship in profile.rb model.
+Allow editing password.
 
-Double check BLOCKED functionality to make sure it isn't broke.
+Fix grammar mistakes in text.
 
-Maybe cache logged in profile's blocked and friended profiles list.
+Deleting comments or items should affect people's adjuncts.
 
-What the hell did you do to blogs?
+Add about page.
 
-Fix image uploading unspecified error.
+Firefox issues. Check IE too.
 
-Make emails pretty.
-
-Double check about and contact pages.
-
-Contacts to new registrations.
-
-Add search.
-
-Make pictures post-able on any stream.
+Safari not opening youtube videos.

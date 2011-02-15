@@ -12,6 +12,6 @@ class LinkThumbnailer < CarrierWave::Uploader::Base
   process :resize_to_fill => [35, 35]
 
   def extension_white_list
-    %w(jpg jpeg gif png)
+    %w(jpg jpeg gif png tiff)
   end
 end

@@ -1,11 +1,14 @@
 class CommentsController < ApplicationController
   before_filter :authenticate_profile!
-  before_filter :find_parent, :only => [:create]
-  before_filter :redirect_if_blocked!, :only => [:create]
+  before_filter :find_parent, :only => [:new, :create]
+  before_filter :redirect_if_blocked!, :only => [:new, :create]
   before_filter :find_comment, :only => [:destroy]
   before_filter :profile_is_comment_owner!, :only => [:destroy]
 
   respond_to :html
+  
+  def new
+  end
 
   def create
     @comment = Comment.new(pass_params(:comment, [:content, :link_submitted]))

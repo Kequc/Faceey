@@ -3,6 +3,7 @@
 - if blocked_id?(panel._id)
   %ul.controls
     = controls_link("Un-block", toggle_block_relationship_path(panel))
+    = controls_link("Blocked profiles", blocked_relationships_path, 'blocked')
 - else
   %ul.controls
     = controls_link("View profile", profile_path(panel), 'stream')
@@ -16,10 +17,11 @@
         - unless friended_id?(panel._id) or blocked_id?(panel._id)
           = controls_link("Start sharing", toggle_friend_relationship_path(panel))
         - if friended_id?(panel._id)
-          = controls_link("Relationship", relationship_path(panel), 'relationship')
+          = controls_link("Sharing", relationship_path(panel), 'relationship')
         - else
           = controls_link("Block", toggle_block_relationship_path(panel))
       - else
         %li.spacer
-        = controls_link("Relationships", relationships_profile_path(panel), 'relationship')
+        = controls_link("Sharing", relationships_profile_path(panel), 'relationship')
+        = controls_link("Blocked profiles", blocked_relationships_path, 'blocked')
   = stream_blurb(panel)

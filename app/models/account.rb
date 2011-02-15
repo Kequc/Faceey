@@ -14,8 +14,7 @@ class Account
 
   attr_accessor :password
   validates :email, :presence => true, :uniqueness => true, :email => true
-  validates :password, :presence      => true,
-                       :length        => { :maximum => 40 },
+  validates :password, :length        => { :minimum => 4, :maximum => 40 },
                        :confirmation  => true,
                        :if            => :should_validate_password?
 

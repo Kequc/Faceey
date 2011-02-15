@@ -4,5 +4,5 @@ class Thought < ItemLinkable
 
   field :content
   
-  validates :content, :presence => true, :length => {:maximum => APP[:max_default_content_length]}
+  validates :content, :presence => true, :length => { :maximum => APP[:max_default_content_length] }
 end
