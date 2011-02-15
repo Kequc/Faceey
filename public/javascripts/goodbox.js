@@ -231,7 +231,7 @@ var GoodBox = new Class({
       // Images
       this.view.set('type', 'image');
       // this.view.set('url', this.view.get('url').replace(/twitpic\.com/i, "twitpic.com/show/full"));
-    } else if (host.test(/youtube\.com/i)) {
+    } else if (host.test(/youtube\.com/i) && this.getViewData('v') != undefined) {
       // YouTube Video (now includes HTML5 option)
       this.setContentDimensions(640, 385);
       this.view.set('type', 'link');
