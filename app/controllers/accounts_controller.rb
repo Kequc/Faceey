@@ -22,7 +22,7 @@ class AccountsController < ApplicationController
     # Confirm email address code
     # Signup step 2
     @account = Account.find(params[:id])
-    redirect_through_profile_verification(@account) if @account.new_email.blank? and !account.has_profile?
+    redirect_through_profile_verification(@account) if @account.new_email.blank? and !@account.has_profile?
     params[:email_code] = params[:account][:email_code] if params[:account]
     if @account.email_code and @account.email_code == params[:email_code]
       @account.update_attributes(:email => @account.new_email, :new_email => nil, :email_code => nil)
