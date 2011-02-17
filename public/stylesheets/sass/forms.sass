@@ -7,6 +7,8 @@ $light_background = #f1f1f1
 $background_color = #fff
 $font_color = #000
 
+$field_height = 19px
+
 .submit
   :overflow hidden
   :margin 0
@@ -20,18 +22,20 @@ $font_color = #000
 form
   textarea, input[type=text], input[type=email], input[type=tel], input[type=password], .faux_field
     :display block
-    :padding 6px 10px
-    :font-size 1em
-    :line-height 1.5em
     :border 1px solid #ebebeb
     :margin 2px
+    :padding 6px 10px
+    :font-size 1em
+    :line-height $field_height
+    :font-family arial, sans-serif
+    :background-color $background_color
   .faux_field
-    :height 1.5em
+    :height $field_height
     :border-color ($light_border - 20)
     select
       :margin 0 2px
   textarea
-    :height 10.5em
+    :height $field_height * 7
     :width 504px
     :resize none
   .page_split
@@ -67,9 +71,11 @@ form
     .field
       :width 260px
       :margin-left 10px
-      .textarea_autosize textarea
-        :min-height 4.5em
-        :width 210px
+      .textarea_autosize
+        :margin-bottom 1em
+        textarea
+          :min-height $field_height * 3
+          :width 210px
     .new_row
       :clear left
       :margin-left 0
@@ -78,16 +84,6 @@ form
       :width 530px
     .privacy
       :margin-bottom 0
-    .textarea_autosize
-      :margin-bottom 1em
-    #terms_of_service
-      :border 1px solid $light_border
-      :margin-bottom 1em
-      :padding 6px 10px
-      :overflow auto
-      :height 27em
-      :color #666
-      :font-size 0.9em
     .field_with_errors
       label
         :font-weight bold
@@ -154,11 +150,20 @@ form
   :padding $space_small 12px
   :margin-bottom $space_large
   :clear left
-  textarea
-    :height 1.5em
-    :width 480px
+  .text_area
+    :border 1px solid #ebebeb
     :margin $space_small 2px
-    :overflow hidden
+    :padding 6px 10px
+    :background-color $background_color
+    textarea
+      :height $field_height
+      :width 480px
+      :margin 0
+      :padding 0
+      :border 0
+      :overflow hidden
+      &:focus
+        :outline none
   input[type=submit]
     :margin $space_small 2px
       :top 0
@@ -168,9 +173,9 @@ form
   .submit
     :margin-bottom 0
   &.textarea_tall textarea
-    :min-height 15em
+    :min-height $field_height * 10
   &.textarea_midsize textarea
-    :min-height 9em
+    :min-height $field_height * 6
   &.add_comment
     :margin-top $space_large
     :margin-left 38px

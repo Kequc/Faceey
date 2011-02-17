@@ -1,7 +1,7 @@
 - if signed_in?
   .attachable.add_comment.textarea_autosize
     = form_for(:comment, :url => item_comments_path(add_comment)) do |form|
-      = form.text_area :content
+      .text_area= form.text_area :content
       .submit= form.submit "Comment"
       .t_link.attached{:style => "display:none;"}
         = form.text_field :link_submitted, :disabled => true

@@ -27,6 +27,8 @@ body {
     cursor: pointer; }
     body a:hover, body span.faux_link:hover {
       text-decoration: underline; }
+    body a img, body span.faux_link img {
+      border: none; }
   body p {
     margin-top: 0; }
   body .title {

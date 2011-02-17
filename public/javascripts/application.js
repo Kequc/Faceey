@@ -6,11 +6,10 @@ var AttachablePanel = new Class({
   },
   initialize: function(container, options) {
     this.setOptions(options);
-
     this.container = container;
+    this.textarea_border = container.getElement('.text_area');
     this.textarea = container.getElement('textarea');
     this.url_regex = new RegExp(APP["link_regex"]);
-
     this.attachable_types = new Hash({
       "normal": new AttachableType(this, "normal", "Normal", 'button.gif'),
       "link": new AttachableType(this, "link", "Link", 'arrow_fat_right.gif')
@@ -22,7 +21,6 @@ var AttachablePanel = new Class({
       }));
     }
     this.renderTypeSelect();
-
     this.boundParseUrl = this.parseUrl.bind(this);
     if (this.options.auto_url) {
       this.textarea.addEvent('keyup', this.boundParseUrl);
@@ -58,7 +56,7 @@ var AttachablePanel = new Class({
     this.attachable_types.each(function(attachable_type) {
       type_select.adopt(attachable_type.button);
     });
-    type_select.inject(this.textarea, 'after');
+    type_select.inject(this.textarea_border, 'after');
   }
 });
 
@@ -124,7 +122,7 @@ var ResizableTextarea = new Class({
   activate: function() {
     this.container.setStyle("height", (this.container.getHeight()-18) + 'px');
     this.textarea.setStyle("height", 0);
-    this.textarea.setStyle("height", (this.textarea.scrollHeight-12) + 'px');
+    this.textarea.setStyle("height", this.textarea.scrollHeight + 'px');
     this.container.setStyle("height", 'auto');
   }
 });
@@ -177,5 +175,12 @@ window.addEvent("domready", function() {
   // Hover profile links causes full name underline
   $$('.shared').each(function(shared) {
     new ProfileLink(shared);
+  });
+  
+  // Nerf accessibility border feature on click
+  $$('a').each(function(link) {
+    link.addEvent('click', function() {
+      this.blur();
+    });
   });
 });

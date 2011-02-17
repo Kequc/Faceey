@@ -10,18 +10,20 @@
 
 form textarea, form input[type=text], form input[type=email], form input[type=tel], form input[type=password], form .faux_field {
   display: block;
+  border: 1px solid #ebebeb;
+  margin: 2px;
   padding: 6px 10px;
   font-size: 1em;
-  line-height: 1.5em;
-  border: 1px solid #ebebeb;
-  margin: 2px; }
+  line-height: 19px;
+  font-family: arial, sans-serif;
+  background-color: white; }
 form .faux_field {
-  height: 1.5em;
+  height: 19px;
   border-color: #dddddd; }
   form .faux_field select {
     margin: 0 2px; }
 form textarea {
-  height: 10.5em;
+  height: 133px;
   width: 504px;
   resize: none; }
 form .page_split {
@@ -57,9 +59,11 @@ form .form_fields {
   form .form_fields .field {
     width: 260px;
     margin-left: 10px; }
-    form .form_fields .field .textarea_autosize textarea {
-      min-height: 4.5em;
-      width: 210px; }
+    form .form_fields .field .textarea_autosize {
+      margin-bottom: 1em; }
+      form .form_fields .field .textarea_autosize textarea {
+        min-height: 57px;
+        width: 210px; }
   form .form_fields .new_row {
     clear: left;
     margin-left: 0; }
@@ -68,16 +72,6 @@ form .form_fields {
     width: 530px; }
   form .form_fields .privacy {
     margin-bottom: 0; }
-  form .form_fields .textarea_autosize {
-    margin-bottom: 1em; }
-  form .form_fields #terms_of_service {
-    border: 1px solid #f1f1f1;
-    margin-bottom: 1em;
-    padding: 6px 10px;
-    overflow: auto;
-    height: 27em;
-    color: #666666;
-    font-size: 0.9em; }
   form .form_fields .field_with_errors label {
     font-weight: bold;
     color: #cc3333; }
@@ -142,11 +136,20 @@ form .form_fields {
   padding: 9px 12px;
   margin-bottom: 17px;
   clear: left; }
-  .textarea_autosize textarea {
-    height: 1.5em;
-    width: 480px;
+  .textarea_autosize .text_area {
+    border: 1px solid #ebebeb;
     margin: 9px 2px;
-    overflow: hidden; }
+    padding: 6px 10px;
+    background-color: white; }
+    .textarea_autosize .text_area textarea {
+      height: 19px;
+      width: 480px;
+      margin: 0;
+      padding: 0;
+      border: 0;
+      overflow: hidden; }
+      .textarea_autosize .text_area textarea:focus {
+        outline: none; }
   .textarea_autosize input[type=submit] {
     margin: 9px 2px;
       margin-top: 0; }
@@ -156,9 +159,9 @@ form .form_fields {
   .textarea_autosize .submit {
     margin-bottom: 0; }
   .textarea_autosize.textarea_tall textarea {
-    min-height: 15em; }
+    min-height: 190px; }
   .textarea_autosize.textarea_midsize textarea {
-    min-height: 9em; }
+    min-height: 114px; }
   .textarea_autosize.add_comment {
     margin-top: 17px;
     margin-left: 38px;
