@@ -14,9 +14,9 @@
     .wide_field
       %p= form.label :description
       .textarea_autosize
-        = form.text_area :description
+        .text_area= form.text_area :description
     .wide_field
       %p= form.label :blurb
       .textarea_autosize
-        = form.text_area :blurb
+        .text_area= form.text_area :blurb
   .submit= form.submit "Save changes"
