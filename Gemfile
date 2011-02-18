@@ -17,3 +17,7 @@ gem 'json'
 # script/rails runner 'Delayed::Backend::Mongoid::Job.create_indexes'
 gem 'delayed_job'
 gem 'delayed_job_mongoid'
+
+group :production do
+  gem 'rack-google_analytics', :require => "rack/google_analytics"
+end

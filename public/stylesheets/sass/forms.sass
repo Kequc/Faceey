@@ -29,6 +29,11 @@ form
     :line-height $field_height
     :font-family arial, sans-serif
     :background-color $background_color
+  textarea, input[type=text], input[type=email], input[type=tel], input[type=password]
+    :cursor text
+    &:focus
+      :background-color $background-color
+      :outline none
   .faux_field
     :height $field_height
     :border-color ($light_border - 20)
@@ -155,6 +160,7 @@ form
     :margin $space_small 2px
     :padding 6px 10px
     :background-color $background_color
+    :cursor text
     textarea
       :height $field_height
       :width 480px
@@ -162,14 +168,11 @@ form
       :padding 0
       :border 0
       :overflow hidden
-      &:focus
-        :outline none
   input[type=submit]
     :margin $space_small 2px
       :top 0
-  input.text
-    :margin $space_small 2px
-    :width 300px
+  .attached input:focus
+    :background-color transparent
   .submit
     :margin-bottom 0
   &.textarea_tall textarea

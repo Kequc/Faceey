@@ -12,6 +12,9 @@ Faceey::Application.configure do
   # Specifies the header that your server uses for sending files
   config.action_dispatch.x_sendfile_header = "X-Sendfile"
   config.action_mailer.default_url_options = { :host => 'www.faceey.com' }
+  
+  # Middleware
+  config.middleware.use("Rack::GoogleAnalytics", :web_property_id => "UA-21489673-1")
 
   # For nginx:
   # config.action_dispatch.x_sendfile_header = 'X-Accel-Redirect'

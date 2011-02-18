@@ -116,7 +116,9 @@ var ResizableTextarea = new Class({
   initialize: function(textarea) {
     this.textarea = textarea;
     this.container = textarea.getParent('.textarea_autosize');
+    this.textarea_border = textarea.getParent('.text_area');
     this.textarea.addEvent('keyup', this.activate.bind(this));
+    this.textarea_border.addEvent('click', this.focusTextarea.bind(this));
     this.activate();
   },
   activate: function() {
@@ -124,6 +126,9 @@ var ResizableTextarea = new Class({
     this.textarea.setStyle("height", 0);
     this.textarea.setStyle("height", this.textarea.scrollHeight + 'px');
     this.container.setStyle("height", 'auto');
+  },
+  focusTextarea: function() {
+    this.textarea.focus();
   }
 });
 
