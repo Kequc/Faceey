@@ -19,7 +19,8 @@
             :color hsla(#{bgh}, 70%, 25%, 1) !important
           ul.controls li
             a:hover
-              :background-color hsla(#{bgh}, 70%, 25%, 0.6) !important
+              :background-color hsla(#{bgh}, 70%, 25%, 1) !important
+              :background-image url('/images/lighten.png') !important
     = javascript_include_tag :defaults, 'goodbox'
     = csrf_meta_tag
     = yield :head

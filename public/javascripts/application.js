@@ -188,4 +188,7 @@ window.addEvent("domready", function() {
       this.blur();
     });
   });
+  
+  // Preload
+  new Asset.images(['/images/lighten.png']);
 });
