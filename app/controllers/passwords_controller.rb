@@ -27,7 +27,7 @@ class PasswordsController < ApplicationController
       @account.password_code = nil
       @account.save
       flash[:notice] = "Password set"
-      redirect_through_profile_verification(@account)
+      redirect_to login_path
     else
       render :action => :edit
     end

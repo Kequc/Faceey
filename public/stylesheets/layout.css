@@ -119,48 +119,48 @@ body {
     float: left;
     height: 40px;
     font-weight: normal; }
-    #top #menu .adjuncts {
-      position: relative;
-      z-index: 5;
-      float: left; }
-      #top #menu .adjuncts a {
-        display: block;
-        margin: 0; }
-      #top #menu .adjuncts ul.drop {
-        position: absolute;
-        top: 39px;
-        left: -10px;
-        width: 300px;
-        background: url("/images/menu_bg.png") top left repeat-y;
-        padding: 0 10px;
-        display: none;
-        font-size: 0.9em; }
-        #top #menu .adjuncts ul.drop li {
-          line-height: 1.5em;
-          overflow: hidden; }
-          #top #menu .adjuncts ul.drop li a {
-            color: black !important;
-            padding: 9px 10px;
-            max-height: 6em;
-            border-top: 1px solid #f1f1f1; }
-            #top #menu .adjuncts ul.drop li a:hover {
-              background: transparent url("/images/lines.png") top left repeat !important; }
-          #top #menu .adjuncts ul.drop li .count {
-            float: right;
-            margin-left: 5px;
-            opacity: 0.6;
-            filter: alpha(opacity=60); }
-          #top #menu .adjuncts ul.drop li .link {
-            margin-right: 10px;
-            font-weight: bold; }
-        #top #menu .adjuncts ul.drop li:first-child a {
-          border-top: 1px solid #666666; }
-        #top #menu .adjuncts ul.drop li:last-child a {
-          border-bottom: 1px solid #666666; }
-      #top #menu .adjuncts.updated:hover .drop {
-        display: block; }
-      #top #menu .adjuncts.updated:hover a {
-        background-color: white; }
+  #top .adjuncts {
+    position: relative;
+    z-index: 5;
+    float: left; }
+  #top .drop_down a {
+    display: block;
+    margin: 0; }
+  #top .drop_down ul.drop {
+    position: absolute;
+    top: 39px;
+    left: -10px;
+    width: 300px;
+    background: url("/images/menu_bg.png") top left repeat-y;
+    padding: 0 10px;
+    display: none;
+    font-size: 0.9em; }
+    #top .drop_down ul.drop li {
+      line-height: 1.5em;
+      overflow: hidden; }
+      #top .drop_down ul.drop li a {
+        color: black !important;
+        padding: 9px 10px;
+        max-height: 6em;
+        border-top: 1px solid #f1f1f1; }
+        #top .drop_down ul.drop li a:hover {
+          background: transparent url("/images/lines.png") top left repeat !important; }
+      #top .drop_down ul.drop li .count {
+        float: right;
+        margin-left: 5px;
+        opacity: 0.6;
+        filter: alpha(opacity=60); }
+      #top .drop_down ul.drop li .link {
+        margin-right: 10px;
+        font-weight: bold; }
+    #top .drop_down ul.drop li:first-child a {
+      border-top: 1px solid #666666; }
+    #top .drop_down ul.drop li:last-child a {
+      border-bottom: 1px solid #666666; }
+  #top .drop_down.updated:hover .drop {
+    display: block; }
+  #top .drop_down.updated:hover a {
+    background-color: white; }
 
 #title {
   position: relative;
@@ -256,152 +256,152 @@ body {
       #middle #left .pagination a:hover {
         text-decoration: underline;
         background-image: url("/images/lines.png"); }
-    #middle #left .block, #middle #left .shared {
-      position: relative;
-      border-top: 1px solid #f1f1f1;
-      margin-bottom: 17px;
-      padding-top: 9px;
-      min-height: 50px; }
-    #middle #left .stub {
-      clear: left;
-      color: #bbbbbb;
-      margin-bottom: 1em;
-      font-size: 0.9em; }
-    #middle #left .shared .uploaded_picture, #middle #left .shared .attached_link {
+  #middle .block, #middle .shared {
+    position: relative;
+    border-top: 1px solid #f1f1f1;
+    margin-bottom: 17px;
+    padding-top: 9px;
+    min-height: 50px; }
+  #middle .stub {
+    clear: left;
+    color: #bbbbbb;
+    margin-bottom: 1em;
+    font-size: 0.9em; }
+  #middle .shared .uploaded_picture, #middle .shared .attached_link {
+    display: block;
+    position: relative;
+    overflow: hidden;
+    margin: 0 60px;
+      margin-bottom: 1em; }
+    #middle .shared .uploaded_picture .original, #middle .shared .attached_link .original {
+      display: none; }
+    #middle .shared .uploaded_picture .thumbnail, #middle .shared .attached_link .thumbnail {
       display: block;
-      position: relative;
+      border: 1px solid #f1f1f1;
+      background-color: white;
+      padding: 2px;
+      height: 35px;
+      width: 35px; }
+    #middle .shared .uploaded_picture:hover .thumbnail, #middle .shared .attached_link:hover .thumbnail {
+      border-color: #bbbbbb; }
+  #middle .shared .attached_link {
+    color: #333333;
+    background-color: #f8f8f8;
+    line-height: 1.4em;
+    word-wrap: break-word; }
+    #middle .shared .attached_link .url {
+      color: #666666;
+      font-weight: bold;
       overflow: hidden;
-      margin: 0 60px;
-        margin-bottom: 1em; }
-      #middle #left .shared .uploaded_picture .original, #middle #left .shared .attached_link .original {
-        display: none; }
-      #middle #left .shared .uploaded_picture .thumbnail, #middle #left .shared .attached_link .thumbnail {
-        display: block;
-        border: 1px solid #f1f1f1;
-        background-color: white;
-        padding: 2px;
-        height: 35px;
-        width: 35px; }
-      #middle #left .shared .uploaded_picture:hover .thumbnail, #middle #left .shared .attached_link:hover .thumbnail {
-        border-color: #bbbbbb; }
-    #middle #left .shared .attached_link {
-      color: #333333;
-      background-color: #f8f8f8;
-      line-height: 1.4em;
-      word-wrap: break-word; }
-      #middle #left .shared .attached_link .url {
-        color: #666666;
-        font-weight: bold;
-        overflow: hidden;
-        clear: left;
-        font-size: 0.9em; }
-      #middle #left .shared .attached_link:hover {
-        text-decoration: none; }
-        #middle #left .shared .attached_link:hover .url {
-          text-decoration: underline; }
-      #middle #left .shared .attached_link .thumbnail {
-        float: left;
-        margin-right: 10px;
-        margin-bottom: 4px; }
-      #middle #left .shared .attached_link .play {
-        position: absolute;
-        z-index: 1;
-        top: 4px;
-        left: 4px; }
-      #middle #left .shared .attached_link .description {
-        font-size: 0.8em;
-        margin-bottom: 4px;
-        color: #666666; }
-      #middle #left .shared .attached_link .title {
-        font-size: 0.9em;
-        margin-bottom: 2px; }
-    #middle #left .shared .info {
-      margin-right: 5px;
-      font-weight: bold; }
-      #middle #left .shared .info .shared_to {
-        color: #999999; }
-    #middle #left .shared .content {
-      overflow: hidden;
-      margin-left: 60px;
-      min-height: 5em;
-      word-wrap: break-word; }
-      #middle #left .shared .content a {
-        text-decoration: underline;
-        color: #666666; }
-        #middle #left .shared .content a:hover {
-          color: #333333; }
-    #middle #left .shared .thumb {
+      clear: left;
+      font-size: 0.9em; }
+    #middle .shared .attached_link:hover {
+      text-decoration: none; }
+      #middle .shared .attached_link:hover .url {
+        text-decoration: underline; }
+    #middle .shared .attached_link .thumbnail {
+      float: left;
+      margin-right: 10px;
+      margin-bottom: 4px; }
+    #middle .shared .attached_link .play {
+      position: absolute;
+      z-index: 1;
+      top: 4px;
+      left: 4px; }
+    #middle .shared .attached_link .description {
+      font-size: 0.8em;
+      margin-bottom: 4px;
+      color: #666666; }
+    #middle .shared .attached_link .title {
+      font-size: 0.9em;
+      margin-bottom: 2px; }
+  #middle .shared .info {
+    margin-right: 5px;
+    font-weight: bold; }
+    #middle .shared .info .shared_to {
+      color: #999999; }
+  #middle .shared .content {
+    overflow: hidden;
+    margin-left: 60px;
+    min-height: 5em;
+    word-wrap: break-word; }
+    #middle .shared .content a {
+      text-decoration: underline;
+      color: #666666; }
+      #middle .shared .content a:hover {
+        color: #333333; }
+  #middle .shared .thumb {
+    position: absolute;
+    top: 9px;
+    left: 0;
+    background-color: #f1f1f1; }
+  #middle .shared .thumb, #middle .shared .thumb img {
+    height: 50px;
+    width: 50px; }
+  #middle .shared a.content {
+    display: block;
+    color: black; }
+    #middle .shared a.content:hover {
+      text-decoration: none; }
+      #middle .shared a.content:hover .link strong, #middle .shared a.content:hover strong.link {
+        text-decoration: underline; }
+    #middle .shared a.content.adjunct {
+      margin-left: 0; }
+    #middle .shared a.content .count {
+      opacity: 0.6;
+      filter: alpha(opacity=60); }
+  #middle .shared .admin_toggle {
+    position: absolute;
+    top: 45px;
+    left: 1px;
+    height: 11px;
+    padding: 1px 0;
+    width: 11px;
+    background: transparent url("/images/profile.gif") center center no-repeat;
+    z-index: 4; }
+    #middle .shared .admin_toggle:hover {
+      background-color: #f1f1f1; }
+      #middle .shared .admin_toggle:hover ul.controls {
+        display: block; }
+    #middle .shared .admin_toggle ul.controls {
+      position: absolute;
+      top: -1px;
+      left: 1px;
+      width: 120px;
+      background: transparent url("/images/controls_bg.png") top left repeat-y;
+      padding: 0 10px;
+      display: none;
+      font-size: 0.9em; }
+      #middle .shared .admin_toggle ul.controls li:first-child a {
+        border-top: 1px solid #999999 !important; }
+      #middle .shared .admin_toggle ul.controls li:last-child a {
+        border-bottom: 1px solid #999999 !important; }
+  #middle #comments .comment {
+    margin-bottom: 9px;
+    min-height: 35px; }
+    #middle #comments .comment .admin_toggle {
+      top: 30px !important; }
+    #middle #comments .comment.op .admin_toggle {
+      right: 23px;
+      left: auto; }
+      #middle #comments .comment.op .admin_toggle ul.controls {
+        right: 1px;
+        left: auto; }
+    #middle #comments .comment .content, #middle #comments .comment .attached_link {
+      margin: 0 60px; }
+    #middle #comments .comment .tiny, #middle #comments .comment .tiny img {
+      height: 35px;
+      width: 35px; }
+    #middle #comments .comment .tiny {
       position: absolute;
       top: 9px;
-      left: 0;
+      right: 0;
       background-color: #f1f1f1; }
-    #middle #left .shared .thumb, #middle #left .shared .thumb img {
-      height: 50px;
-      width: 50px; }
-    #middle #left .shared a.content {
-      display: block;
-      color: black; }
-      #middle #left .shared a.content:hover {
-        text-decoration: none; }
-        #middle #left .shared a.content:hover .link strong, #middle #left .shared a.content:hover strong.link {
-          text-decoration: underline; }
-      #middle #left .shared a.content.adjunct {
-        margin-left: 0; }
-      #middle #left .shared a.content .count {
-        opacity: 0.6;
-        filter: alpha(opacity=60); }
-    #middle #left .shared .admin_toggle {
-      position: absolute;
-      top: 45px;
-      left: 1px;
-      height: 11px;
-      padding: 1px 0;
-      width: 11px;
-      background: transparent url("/images/profile.gif") center center no-repeat;
-      z-index: 4; }
-      #middle #left .shared .admin_toggle:hover {
-        background-color: #f1f1f1; }
-        #middle #left .shared .admin_toggle:hover ul.controls {
-          display: block; }
-      #middle #left .shared .admin_toggle ul.controls {
-        position: absolute;
-        top: -1px;
-        left: 1px;
-        width: 120px;
-        background: transparent url("/images/controls_bg.png") top left repeat-y;
-        padding: 0 10px;
-        display: none;
-        font-size: 0.9em; }
-        #middle #left .shared .admin_toggle ul.controls li:first-child a {
-          border-top: 1px solid #999999 !important; }
-        #middle #left .shared .admin_toggle ul.controls li:last-child a {
-          border-bottom: 1px solid #999999 !important; }
-    #middle #left #comments .comment {
-      margin-bottom: 9px;
-      min-height: 35px; }
-      #middle #left #comments .comment .admin_toggle {
-        top: 30px !important; }
-      #middle #left #comments .comment.op .admin_toggle {
-        right: 23px;
-        left: auto; }
-        #middle #left #comments .comment.op .admin_toggle ul.controls {
-          right: 1px;
-          left: auto; }
-      #middle #left #comments .comment .content, #middle #left #comments .comment .attached_link {
-        margin: 0 60px; }
-      #middle #left #comments .comment .tiny, #middle #left #comments .comment .tiny img {
-        height: 35px;
-        width: 35px; }
-      #middle #left #comments .comment .tiny {
-        position: absolute;
-        top: 9px;
-        right: 0;
-        background-color: #f1f1f1; }
-      #middle #left #comments .comment.non_op .tiny {
-        right: auto;
-        left: 0; }
-    #middle #left #profiles a:hover span.shared_by {
-      text-decoration: underline; }
+    #middle #comments .comment.non_op .tiny {
+      right: auto;
+      left: 0; }
+  #middle #profiles a:hover span.shared_by {
+    text-decoration: underline; }
 
 #notice {
   margin-bottom: 17px;

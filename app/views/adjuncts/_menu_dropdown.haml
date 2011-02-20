@@ -1,4 +1,4 @@
-.adjuncts{:class => (current_profile.has_adjuncts? ? "updated" : nil)}
+.adjuncts.drop_down{:class => (current_profile.has_adjuncts? ? "updated" : nil)}
   = link_to strong_text_with_count("Updates", current_profile.adjuncts_count, nil), adjuncts_path
   - if current_profile.has_adjuncts?
     %ul.drop

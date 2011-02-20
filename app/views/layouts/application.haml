@@ -38,6 +38,10 @@
                 = link_to current_profile, current_profile
                 .text= "not you? Then"
                 = link_to "sign out", logout_path
+                #account_options.drop_down
+                  %ul.drop
+                    %li= link_to "Test"
+                    %li= link_to "test"
               - else
                 = link_to "Join now", new_account_path
                 .text= "or"
