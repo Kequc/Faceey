@@ -16,7 +16,7 @@
 
 .block
   .title= "Very little investor interest"
-  %p= "#{APP[:site_name]} is a young application and was assembled with no funding. It is however fairly sound, future employment please take notice."
+  %p= "#{APP[:site_name]} is a young application and was assembled with no funding. The functionality of the site is therefore very simplistic and not burdened with having to be actually useful."
 #pause_animation
   %span.tiny.faux_link Pause animation
   .centered_form
@@ -29,9 +29,8 @@
             .label= label_tag :email
           .submit= form.submit "Send"
 %div{:style => "text-align: center"}
-  .title= "Currently #{Profile.count} registered accounts with profiles"
-  .title= "Since "+time_ago_in_words("2011/02/20 23:00:00".to_time)+" ago"
-  %p= "Share with all of them from anywhere in the world."
+  %p= "Currently <strong>#{Profile.count} registered accounts</strong> with profiles.".html_safe
+  %p= "We opened Feb 21, 2011."
 .block
   .title= "Absolutely no privacy"
   %p= "We organize your contacts, and enable a new way to share and interact with the world. However, besides keeping your address book safe and your password encrypted. Everything that you post on #{APP[:site_name]} is going to be read and seen by as many different people as possible."
