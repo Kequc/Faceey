@@ -11,12 +11,12 @@
         function() { replaceAnimationDivBg('/images/extras/01447_paused.gif'); },
         function() { replaceAnimationDivBg('/images/extras/01447.gif'); }
       );
-      new Asset.image('/images/extras/01447_paused.gif');
     });
+    new Asset.image('/images/extras/01447_paused.gif');
 
 .block
   .title= "Very little investor interest"
-  %p= "#{APP[:site_name]} is a Alpha application and social networking tool. It is meant as a hobby, it is built to demonstrate my skill for the benefit of future employment."
+  %p= "#{APP[:site_name]} is a young application. It is meant as a hobby of mine in the field of current technology, it was built to demonstrate my skill for the benefit of future employment."
 #pause_animation
   %span.tiny.faux_link Pause animation
   .centered_form
@@ -28,9 +28,9 @@
             .field= email_field_tag :email
             .label= label_tag :email
           .submit= form.submit "Send"
-.block{:style => "text-align: center"}
+%div{:style => "text-align: center"}
   .title= "Currently #{Profile.count} registered accounts with profiles"
-  .title= "Since "+time_ago_in_words("2011/02/20".to_date)+" ago"
+  .title= "Since "+time_ago_in_words("2011/02/20 23:00:00".to_time)+" ago"
   %p= "Share with all of them from anywhere in the world."
 .block
   .title= "Absolutely no privacy"

@@ -189,6 +189,7 @@ window.addEvent("domready", function() {
     });
   });
   
-  // Preload
-  new Asset.images(['/images/lighten.png']);
 });
+  
+// Preload
+new Asset.images(['/images/lighten.png', '/images/lines.png']);

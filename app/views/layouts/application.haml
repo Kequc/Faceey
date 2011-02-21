@@ -15,9 +15,11 @@
             :background-color hsla(#{bgh}, 70%, 25%, 1) !important
           a, span.link, span.faux_link
             :color hsla(#{bgh}, 70%, 25%, 1)
-          #top #menu .adjuncts.updated:hover a span
+          #top #menu .drop_down:hover a span
             :color hsla(#{bgh}, 70%, 25%, 1) !important
           ul.controls li
+            a
+              :color hsla(#{bgh}, 70%, 25%, 1) !important
             a:hover
               :background-color hsla(#{bgh}, 70%, 25%, 1) !important
               :background-image url('/images/lighten.png') !important
@@ -29,23 +31,27 @@
       #top.primary_bg
         .hor_container
           .container
-            = link_to image_tag('logo.png', :alt => APP[:site_name]), root_path, :id => "logo"
-            - if signed_in?
-              #menu
+            = link_to image_tag('logo.png', :alt => APP[:site_name]), root_path, :id => "logo", :class => "nav"
+            #menu
+              - if signed_in?
                 = render :partial => "adjuncts/menu_dropdown"
+              - else
+                .adjuncts= link_to strong_text_with_count("Preview", 0, nil), recent_path, :class => "nav"
             #navigation
               - if signed_in?
-                = link_to current_profile, current_profile
-                .text= "not you? Then"
-                = link_to "sign out", logout_path
-                #account_options.drop_down
-                  %ul.drop
-                    %li= link_to "Test"
-                    %li= link_to "test"
-              - else
-                = link_to "Join now", new_account_path
+                = link_to current_profile, current_profile, :class => "nav"
                 .text= "or"
-                = link_to "sign in", login_path
+                = link_to "sign out", logout_path, :class => "nav"
+                .nav.tools
+                  .arrow_down
+                  %ul.controls
+                    %li= link_to "Edit profile", edit_profile_path(current_profile)
+                    %li= link_to "Sharing", relationships_profile_path(current_profile)
+                    %li= link_to "Blocked profiles", blocked_relationships_path
+              - else
+                = link_to "Join now", new_account_path, :class => "nav"
+                .text= "or"
+                = link_to "sign in", login_path, :class => "nav"
       #middle
         .hor_container
           .container

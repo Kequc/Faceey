@@ -8,10 +8,8 @@
   %ul.controls
     = controls_link("View profile", profile_path(panel), 'stream')
     = controls_link("About", about_profile_path(panel), 'about')
-    - if can_modify?(panel)
-      = controls_link("Edit profile", edit_profile_path(panel), 'edit')
     - if signed_in?
-      - if !current_profile_id?(panel._id)
+      - unless current_profile_id?(panel._id)
         / = controls_link("Private message", new_profile_message_path(panel), 'message')
         %li.spacer
         - unless friended_id?(panel._id) or blocked_id?(panel._id)
@@ -20,8 +18,4 @@
           = controls_link("Sharing", relationship_path(panel), 'relationship')
         - else
           = controls_link("Block", toggle_block_relationship_path(panel))
-      - else
-        %li.spacer
-        = controls_link("Sharing", relationships_profile_path(panel), 'relationship')
-        = controls_link("Blocked profiles", blocked_relationships_path, 'blocked')
   = stream_blurb(panel)
