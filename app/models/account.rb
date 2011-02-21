@@ -77,7 +77,7 @@ class Account
   end
   
   def restore_changed_email
-    if !persisted? or email_changed?
+    if !self.persisted? or self.email_changed?
       self.new_email = self.email
       self.email = self.email_was
       self.email_code = Account.generate_code
