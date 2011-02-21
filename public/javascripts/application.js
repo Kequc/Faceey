@@ -192,4 +192,4 @@ window.addEvent("domready", function() {
 });
   
 // Preload
-new Asset.images(['/images/lighten.png', '/images/lines.png']);
+new Asset.images(['/images/lighten.png', '/images/lines.png', '/images/controls_bg.png', '/images/menu_bg.png']);
