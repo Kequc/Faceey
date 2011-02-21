@@ -35,8 +35,6 @@
             #menu
               - if signed_in?
                 = render :partial => "adjuncts/menu_dropdown"
-              - else
-                .adjuncts= link_to strong_text_with_count("Preview", 0, nil), recent_path, :class => "nav"
             #navigation
               - if signed_in?
                 = link_to current_profile, current_profile, :class => "nav"
