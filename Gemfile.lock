@@ -103,6 +103,7 @@ DEPENDENCIES
   delayed_job_mongoid
   haml
   json
+  mail
   mini_magick
   mongoid (= 2.0.0.rc.7)
   rack-google_analytics

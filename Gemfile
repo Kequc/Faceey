@@ -12,6 +12,7 @@ gem "carrierwave"
 gem 'mini_magick'
 gem 'rest-client'
 gem 'json'
+gem "mail"
 
 # Don't forget to run:
 # script/rails runner 'Delayed::Backend::Mongoid::Job.create_indexes'
