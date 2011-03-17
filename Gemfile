@@ -18,6 +18,7 @@ gem "mail"
 # script/rails runner 'Delayed::Backend::Mongoid::Job.create_indexes'
 gem 'delayed_job'
 gem 'delayed_job_mongoid'
+gem "workless", :git => "git://github.com/3dd13/workless.git"
 
 group :production do
   gem 'rack-google_analytics', :require => "rack/google_analytics"
