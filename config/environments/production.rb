@@ -12,8 +12,7 @@ Faceey::Application.configure do
   # Specifies the header that your server uses for sending files
   config.action_dispatch.x_sendfile_header = "X-Sendfile"
   config.action_mailer.default_url_options = { :host => 'www.faceey.com' }
-  config.action_mailer.delivery_method = :smtp  
-
+  
   # Middleware
   config.middleware.use("Rack::GoogleAnalytics", :web_property_id => "UA-21489673-1")
 
@@ -40,7 +39,7 @@ Faceey::Application.configure do
   # config.action_controller.asset_host = "http://assets.example.com"
 
   # Disable delivery errors, bad email addresses will be ignored
-  config.action_mailer.raise_delivery_errors = true
+  # config.action_mailer.raise_delivery_errors = false
 
   # Enable threaded mode
   # config.threadsafe!
