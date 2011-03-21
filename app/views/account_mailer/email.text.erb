@@ -1,0 +1,10 @@
+<%= "Please confirm your #{APP[:site_name]} account by clicking this link." %>
+<%= confirm_account_url(@account._id, :email_code => @account.email_code) %>
+
+<%= "Once you confirm, you will have full access to #{APP[:site_name]} and all future notifications will be sent to this email address." %>
+
+
+Sent from
+
+<%= APP[:site_name] %>
+<%= link_to root_url, root_url %>

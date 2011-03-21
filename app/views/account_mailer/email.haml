@@ -1,0 +1,16 @@
+!!!
+%html
+  %head
+    %meta{"http-equiv" => "Content-Type", :content => "text/html; charset=utf-8"}
+  %body{:style => "font-family:sans-serif;line-height:1.5em;"}
+    %p
+      = "Please confirm your #{APP[:site_name]} account by clicking this link."
+      %br
+      = link_to confirm_account_url(@account._id, :email_code => @account.email_code), confirm_account_url(@account._id, :email_code => @account.email_code)
+    %p= "Once you confirm, you will have full access to #{APP[:site_name]} and all future notifications will be sent to this email address."
+    %br
+    %p Sent from
+    %p
+      = APP[:site_name]
+      %br
+      = link_to root_url, root_url
