@@ -7,7 +7,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery # See ActionController::RequestForgeryProtection for details
   layout 'application'
 
-  helper_method :current_profile, :current_profile_id, :current_profile_id?, :signed_in?, :can_modify?
+  helper_method :current_profile, :current_profile_id, :current_profile_id?, :signed_in?, :current_profile_confirmed?, :can_modify?
   helper_method :friend_id?, :friended_id?, :blocked_id?, :hidden_id?
 
   protected
@@ -15,7 +15,7 @@ class ApplicationController < ActionController::Base
   def current_profile
     return nil unless signed_in?
     unless @current_profile ||= Profile.where(:_id => session[:profile_id]).first
-      session[:profile_id] = nil
+      logout_profile
     end
     @current_profile
   end
@@ -26,6 +26,10 @@ class ApplicationController < ActionController::Base
   
   def signed_in?
     current_profile_id != nil
+  end
+  
+  def current_profile_confirmed?
+    session[:account_confirmed] || false
   end
   
   def current_profile_id?(id)
@@ -77,9 +81,15 @@ class ApplicationController < ActionController::Base
     Profile.current = current_profile
   end
 
-  def login_profile!(profile)
-    session[:profile_id] = profile._id
-    redirect_to profile_path(profile)
+  def login_profile!(account)
+    session[:account_confirmed] = account.confirmed
+    session[:profile_id] = account.profile._id
+    redirect_to profile_path(account.profile)
+  end
+  
+  def logout_profile
+    session[:account_confirmed] = nil
+    session[:profile_id] = nil
   end
   
   def pass_params(symbol, arr=[])
@@ -96,15 +106,5 @@ class ApplicationController < ActionController::Base
       end
     end
     return parent_model.find(parent_id)
-  end
-  
-  def redirect_through_profile_verification(account)
-    if account.has_profile?
-      login_profile!(account.profile)
-    elsif !account.has_password?
-      redirect_to edit_password_path(account)
-    else
-      redirect_to new_account_profile_path(account)
-    end
   end
 end

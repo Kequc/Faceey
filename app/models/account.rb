@@ -5,14 +5,18 @@ class Account
   field :email
   index :email
   field :password_hash
+  field :confirmed, :type => Boolean, :default => false
   field :new_email
   field :email_code
   field :password_code
   field :password_code_sent_at, :type => DateTime
 
-  references_one :profile
+  references_one :profile, :autosave => true
+  accepts_nested_attributes_for :profile
+  validates_associated_attributes :profile
 
   attr_accessor :password
+  validates :profile, :presence => true
   validates :email, :presence => true, :uniqueness => true, :email => true
   validates :password, :length        => { :minimum => 4, :maximum => 40 },
                        :confirmation  => true,
@@ -29,13 +33,11 @@ class Account
     return nil
   end
   
-  def send_new_password_code
-    self.password_code = Account.generate_code
-    self.password_code_sent_at = Time.now
-    self.save
-    AccountMailer.password(self).deliver
+  def full_name
+    has_profile? ? profile.full_name : email
   end
-  
+  alias_method :to_s, :full_name
+
   def self.generate_code
     ActiveSupport::SecureRandom.hex(4)
   end
@@ -73,7 +75,7 @@ class Account
   end
 
   def should_validate_password?
-    password or password.present?
+    !self.persisted? or password.present?
   end
   
   def restore_changed_email
@@ -81,6 +83,7 @@ class Account
       self.new_email = self.email
       self.email = self.email_was
       self.email_code = Account.generate_code
+      AccountMailer.email(self).deliver
     end
   end
 end

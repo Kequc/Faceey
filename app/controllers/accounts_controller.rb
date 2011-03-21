@@ -2,19 +2,19 @@ class AccountsController < ApplicationController
   respond_to :html
   
   def new
-    respond_with(@account = Account.new)
+    @account = Account.new
+    @account.build_profile
+    respond_with(@account)
   end
   
   def create
     # Send invitation to user
     # Signup step 1
-    @account = Account.find_or_initialize_by(:email => params[:email])
-    if !@account.persisted? and !@account.save
-      flash[:notice] = "Sending failed"
-      render :action => :new
+    @account = Account.new(pass_params(:account, [:email, :password, :password_confirmation, :profile_attributes]))
+    if @account.save
+      login_profile!(@account)
     else
-      AccountMailer.welcome_email(@account).deliver
-      redirect_to sent_account_path(@account)
+      render :action => :new
     end
   end
   
@@ -22,18 +22,14 @@ class AccountsController < ApplicationController
     # Confirm email address code
     # Signup step 2
     @account = Account.find(params[:id])
-    redirect_through_profile_verification(@account) if @account.new_email.blank? and !@account.has_profile?
-    params[:email_code] = params[:account][:email_code] if params[:account]
-    if @account.email_code and @account.email_code == params[:email_code]
-      @account.update_attributes(:email => @account.new_email, :new_email => nil, :email_code => nil)
+    if @account.email_code and @account.new_email and @account.email_code == params[:email_code]
+      @account.update_attributes(:email => @account.new_email, :confirmed => true, :new_email => nil, :email_code => nil)
       flash[:notice] = "Email address confirmed"
-      redirect_through_profile_verification(@account)
+      AccountMailer.welcome(@account).deliver
     else
-      flash[:notice] = "Code invalid please retry" unless params[:email_code].blank?
+      flash[:notice] = "Code invalid please retry"
     end
-  end
-  
-  def sent
+    redirect_to signed_in? ? profile_path(current_profile) : new_session_path
   end
   
   def terms_of_service

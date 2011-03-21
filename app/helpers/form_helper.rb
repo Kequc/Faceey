@@ -13,6 +13,6 @@ module FormHelper
     object.errors.full_messages.each do |msg|
       errors << content_tag(:li, msg)
     end
-    return content_tag(:div, content_tag(:div, message, :class => "header primary_bg") + content_tag(:ul, errors.join("\n").html_safe), :class => "form_errors").html_safe
+    return content_tag(:div, content_tag(:ul, errors.join("\n").html_safe), :class => "form_errors").html_safe
   end
 end

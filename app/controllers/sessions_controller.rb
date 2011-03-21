@@ -6,16 +6,16 @@ class SessionsController < ApplicationController
     s = params[:session]
     account = Account.authenticate(s[:email], s[:password]) if s
     if account
-      redirect_through_profile_verification(account)
+      login_profile!(account)
     else
-      redirect_to login_path, :notice => "Unsuccessful login"
+      redirect_to new_session_path, :notice => "Unsuccessful login"
     end
   end
   
   def destroy
     if session[:profile_id]
-      session[:profile_id] = nil
-      redirect_to login_path
+      logout_profile
+      redirect_to new_session_path
     end
   end
 end

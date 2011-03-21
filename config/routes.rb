@@ -34,8 +34,7 @@ Faceey::Application.routes.draw do
   resources :thoughts, :only => :show, :controller => "items"
   resources :pictures, :only => :show, :controller => "items"
 
-  match "login", :to => "sessions#new", :via => :get, :as => "login"
-  match "login", :to => "sessions#create", :via => :post
+  resources :sessions, :only => [:new, :create]
   match "sign_out", :to => "sessions#destroy", :via => :get, :as => "logout"
   resources :passwords, :only => [:new, :create] do
     get :sent, :on => :member
@@ -44,10 +43,7 @@ Faceey::Application.routes.draw do
   end
   
   resources :accounts, :only => [:new, :create] do
-    get :sent, :on => :member
     get :confirm, :on => :member, :path => 'confirm(/:email_code)'
-    post :confirm, :on => :member
-    resources :profiles, :only => [:new, :create]
   end
   match "terms_of_service", :to => "accounts#terms_of_service", :as => "terms_of_service"
 

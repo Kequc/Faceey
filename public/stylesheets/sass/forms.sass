@@ -57,6 +57,8 @@ form
     :padding $space_large 0
     :border-top 1px solid $light_border
     :width 530px
+    .title
+      :margin-bottom 1em
     p.check_box label
       :color #bbb
       span
@@ -102,30 +104,14 @@ form
       input
         :background-color transparent
 
-.centered_form
-  :position relative
+a.home_page_link
+  :display block
   :background-color $light_background
-  :margin-bottom $space_large
+  :margin-bottom 1em
+  :padding $space_small 0
   :text-align center
-  :padding $space_small
-  .fire_1
-    :background url('/images/extras/01447.gif') left center no-repeat
-  .fire_2
-    :background url('/images/extras/01447.gif') right center no-repeat
-  .form_fields
-    :width 350px
-    :position relative
-    :left 50%
-    :padding-top 0
-    :margin-left -175px
-    :overflow hidden
-    .label
-      :float right
-      :line-height 37px
-    .field
-      :float right
-  .submit
-    :margin-bottom 0
+  :font-weight normal
+  :color #000
 
 .attachable
   :overflow hidden

@@ -1,4 +1,4 @@
-- title "Password reset"
+- title "Password recovery"
 - named_panel("sessions", 'reset_password')
 
 = form_for(:session, :url => {:action => :create}) do |form|
@@ -7,5 +7,5 @@
       %p= form.label :email
       %p= form.email_field :email
     .wide_field
-      %p.extra Use this form to have a short set of password reset instructions sent to your email address.
-  .submit= form.submit "Send"
+      %p.extra Your account is recoverable using your email address.
+  .submit= form.submit "Submit"

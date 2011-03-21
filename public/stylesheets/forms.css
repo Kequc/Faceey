@@ -45,6 +45,8 @@ form .form_fields {
   padding: 17px 0;
   border-top: 1px solid #f1f1f1;
   width: 530px; }
+  form .form_fields .title {
+    margin-bottom: 1em; }
   form .form_fields p.check_box label {
     color: #bbbbbb; }
     form .form_fields p.check_box label span {
@@ -88,30 +90,14 @@ form .form_fields {
   form .form_fields .check_box .field_with_errors input {
     background-color: transparent; }
 
-.centered_form {
-  position: relative;
+a.home_page_link {
+  display: block;
   background-color: #f1f1f1;
-  margin-bottom: 17px;
+  margin-bottom: 1em;
+  padding: 9px 0;
   text-align: center;
-  padding: 9px; }
-  .centered_form .fire_1 {
-    background: url("/images/extras/01447.gif") left center no-repeat; }
-  .centered_form .fire_2 {
-    background: url("/images/extras/01447.gif") right center no-repeat; }
-  .centered_form .form_fields {
-    width: 350px;
-    position: relative;
-    left: 50%;
-    padding-top: 0;
-    margin-left: -175px;
-    overflow: hidden; }
-    .centered_form .form_fields .label {
-      float: right;
-      line-height: 37px; }
-    .centered_form .form_fields .field {
-      float: right; }
-  .centered_form .submit {
-    margin-bottom: 0; }
+  font-weight: normal;
+  color: black; }
 
 .attachable {
   overflow: hidden; }

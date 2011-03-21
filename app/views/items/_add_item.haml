@@ -1,4 +1,5 @@
 - if signed_in?
+  -# if current_profile_confirmed?
   .attachable.add_item.textarea_autosize
     = form_for(:item, :url => stream_items_path(add_item), :html => {:multipart => true}) do |form|
       .text_area= form.text_area :content
@@ -9,3 +10,8 @@
         = form.file_field :attach, :disabled => true
       .t_picture_url.attached{:style => "display:none;"}
         = form.text_field :remote_attach_url, :disabled => true
+  -# else
+    .attachable.add_item.textarea_autosize
+      .title Email not yet confirmed
+      %p
+        = "Please click the link found in your confirmation email to gain full access to #{APP[:site_name]}'s features."

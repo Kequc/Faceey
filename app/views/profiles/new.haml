@@ -5,11 +5,6 @@
   = errors_for @profile
   .form_fields
     = render :partial => "form", :object => form
-    .wide_field
-      %p.extra Real name not required.
   .form_fields
-    .wide_field
-      %p= link_to "Terms of service", terms_of_service_path, :target => "_blank"
-    .wide_field
-      = render_check_box(form, :terms_of_service, "Accept terms of service")
+    = render :partial => "tos_form", :object => form
   .submit= form.submit "Finish"

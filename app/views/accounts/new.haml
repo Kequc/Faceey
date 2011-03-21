@@ -1,11 +1,16 @@
-- title "Join now"
+- title "Create account"
 - named_panel("sessions", 'join')
 
-= form_for(@account) do |form|
+= form_for @account do |form|
+  = errors_for @account
   .form_fields
+    = form.fields_for :profile do |profile_fields|
+      = render :partial => "profiles/form", :object => profile_fields
+    = render :partial => "passwords/form", :object => form
     .field.new_row
-      %p= label_tag :email
-      %p= email_field_tag :email
-    .wide_field
-      %p.extra Use this form to request an invitation be sent to your inbox.
-  .submit= form.submit "Send"
+      %p= form.label :email
+      %p= form.text_field :email
+  .form_fields
+    = form.fields_for :profile do |profile_fields|
+      = render :partial => "profiles/tos_form", :object => profile_fields
+  .submit= form.submit "Submit"

@@ -111,10 +111,6 @@ module LayoutHelper
     content_tag(:li, link_to(text, link.to_s, :class => matches_current_page?(this_page) ? "current" : nil))
   end
   
-  def controls_item(text, this_page=nil)
-    content_tag(:li, content_tag(:div, text, :class => matches_current_page?(this_page) ? "current" : nil))
-  end
-  
   def matches_current_page?(value)
     !value.blank? and @current_page.to_s == value.to_s
   end

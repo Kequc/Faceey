@@ -47,9 +47,9 @@
                     %li= link_to "Sharing", relationships_profile_path(current_profile)
                     %li= link_to "Blocked profiles", blocked_relationships_path
               - else
-                = link_to "Join now", new_account_path, :class => "nav"
+                = link_to "Create account", new_account_path, :class => "nav"
                 .text= "or"
-                = link_to "sign in", login_path, :class => "nav"
+                = link_to "login", new_session_path, :class => "nav"
       #middle
         .hor_container
           .container
