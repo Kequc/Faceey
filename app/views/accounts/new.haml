@@ -4,13 +4,13 @@
 = form_for @account do |form|
   = errors_for @account
   .form_fields
-    = form.fields_for :profile do |profile_fields|
-      = render :partial => "profiles/form", :object => profile_fields
+    = fields_for @profile do |profile_form|
+      = render :partial => "profiles/form", :object => profile_form
     = render :partial => "passwords/form", :object => form
     .field.new_row
       %p= form.label :email
       %p= form.text_field :email
   .form_fields
-    = form.fields_for :profile do |profile_fields|
-      = render :partial => "profiles/tos_form", :object => profile_fields
+    = fields_for @profile do |profile_form|
+      = render :partial => "profiles/tos_form", :object => profile_form
   .submit= form.submit "Submit"

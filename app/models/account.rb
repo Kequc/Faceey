@@ -12,7 +12,6 @@ class Account
   field :password_code_sent_at, :type => DateTime
 
   references_one :profile, :autosave => true
-  accepts_nested_attributes_for :profile
   validates_associated_attributes :profile
 
   attr_accessor :password
@@ -26,15 +25,14 @@ class Account
   before_save :restore_changed_email
   
   def self.authenticate(email, password)
-    account = where(:email => email).first
-    if account and account.has_password?
+    if account = where(:email => email).first
       return account if Password.new(account.password_hash) == password
     end
     return nil
   end
   
   def full_name
-    has_profile? ? profile.full_name : email
+    profile.full_name
   end
   alias_method :to_s, :full_name
 
@@ -43,23 +41,7 @@ class Account
   end
   
   def password_code_verifies?(code)
-    if !has_password? and !new_email
-      # Account is new
-      return true
-    end
     password_code and password_code == code and password_code_sent_at and password_code_sent_at > 5.days.ago
-  end
-  
-  def can_login?
-    profile and password and !password.blank?
-  end
-  
-  def has_profile?
-    profile
-  end
-  
-  def has_password?
-    !password_hash.blank?
   end
   
   def email_to_string(address=nil)

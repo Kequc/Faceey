@@ -6,7 +6,8 @@
     %p
       = "Please confirm your #{APP[:site_name]} account by clicking this link."
       %br
-      = link_to confirm_account_url(@account._id, :email_code => @account.email_code), confirm_account_url(@account._id, :email_code => @account.email_code)
+      - url = confirm_account_url(@account._id, :email_code => @account.email_code)
+      = link_to url, url
     %p= "Once you confirm, you will have full access to #{APP[:site_name]} and all future notifications will be sent to this email address."
     %br
     %p Sent from

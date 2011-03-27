@@ -13,6 +13,6 @@ class AccountMailer < ActionMailer::Base
   
   def password(account)
     @account = account
-    mail(:to => account.email_to_string, :subject => "Password request")
+    mail(:to => account.email_to_string, :subject => "Password recovery")
   end
 end

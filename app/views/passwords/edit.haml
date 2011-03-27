@@ -1,5 +1,5 @@
 - title "Set password"
-- named_panel("accounts", 'password')
+- panel @account.profile
 
 = form_for @account, :url => password_path(@account, :password_code => params[:password_code]) do |form|
   = errors_for @account

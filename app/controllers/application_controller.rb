@@ -93,6 +93,7 @@ class ApplicationController < ActionController::Base
   end
   
   def pass_params(symbol, arr=[])
+    return nil unless params[symbol]
     params[symbol].reject{ |k| arr.include?(k) }
   end
 

@@ -1,5 +1,8 @@
-- title "Password request sent"
-- named_panel("sessions")
+- title "Password recovery"
+- if signed_in?
+  - panel current_profile
+- else
+  - named_panel("sessions")
 
 .block
-  %p Please use the link sent to your email to reset your password.
+  %p Please use the link sent to your email to recover your password for this account.

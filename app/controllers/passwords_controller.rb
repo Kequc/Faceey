@@ -9,10 +9,10 @@ class PasswordsController < ApplicationController
   
   def create
     # Send password reset instructions to user
-    if params[:session] and !params[:session][:email].blank?
-      if account = Account.where(:email => params[:session][:email]).first
+    unless params[:email].blank?
+      if account = Account.where(:email => params[:email]).first
         account.update_attributes(:password_code => Account.generate_code, :password_code_sent_at => Time.now)
-        AccountMailer.password(self).deliver
+        AccountMailer.password(account).deliver
       end
       redirect_to sent_password_path(account)
     else
@@ -28,7 +28,7 @@ class PasswordsController < ApplicationController
       @account.password_code = nil
       @account.save
       flash[:notice] = "Password set"
-      redirect_to new_session_path
+      login_profile!(@account)
     else
       render :action => :edit
     end

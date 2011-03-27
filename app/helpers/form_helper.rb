@@ -6,13 +6,10 @@ module FormHelper
 
   def errors_for(object, message=nil)
     return nil unless object.errors.any?
-    if message.blank?
-      message = pluralize(object.errors.size, 'problem')
-    end  
-    errors = []
+    list_errors = []
     object.errors.full_messages.each do |msg|
-      errors << content_tag(:li, msg)
+      list_errors << content_tag(:li, msg)
     end
-    return content_tag(:div, content_tag(:ul, errors.join("\n").html_safe), :class => "form_errors").html_safe
+    return content_tag(:div, content_tag(:ul, list_errors.join("\n").html_safe), :class => "form_errors").html_safe
   end
 end
