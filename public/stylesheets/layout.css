@@ -216,6 +216,13 @@ body {
   line-height: 25px;
   font-weight: bold; }
 
+#logo_large, #logo_large img {
+  width: 259px;
+  height: 64px; }
+
+#logo_large {
+  margin: 34px auto 17px auto; }
+
 #middle {
   overflow: hidden;
   padding-bottom: 51px; }

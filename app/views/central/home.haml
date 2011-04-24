@@ -4,7 +4,9 @@
 .block
   .title= "Pretty much no investor interest"
   %p= "#{APP[:site_name]} is a young application and was assembled with no funding. The functionality of the site is therefore very simplistic and not burdened with having to be actually useful."
-= link_to("Now open", new_account_path, :class => "home_page_link")
+%a{:href => new_account_path, :style => "display:block;"}
+  #logo_large.primary_bg= image_tag("logo_large.png", :alt => "")
+  .home_page_link Now open
 %div{:style => "text-align: center"}
   %p= "<strong>#{Profile.count} registered accounts</strong> since <strong>Feb 21, 2011</strong>".html_safe
 .block

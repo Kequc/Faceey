@@ -90,7 +90,7 @@ form .form_fields {
   form .form_fields .check_box .field_with_errors input {
     background-color: transparent; }
 
-a.home_page_link {
+.home_page_link {
   display: block;
   background-color: #f1f1f1;
   margin-bottom: 1em;
