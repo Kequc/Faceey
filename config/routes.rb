@@ -1,5 +1,5 @@
 Faceey::Application.routes.draw do
-  root :to => "central#good_content"
+  root :to => "central#recent"
   match "/javascripts/constants.js", :to => 'javascripts#constants'
 
   resources :profiles, :only => [:show, :edit, :update] do
