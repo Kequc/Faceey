@@ -41,7 +41,7 @@ Faceey::Application.routes.draw do
     get :edit, :on => :member, :path => 'change(/:password_code)'
     put :update, :on => :member, :path => 'change(/:password_code)'
   end
-  
+
   resources :accounts, :only => [:new, :create] do
     get :confirm, :on => :member, :path => 'confirm(/:email_code)'
   end
